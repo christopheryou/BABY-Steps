@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Character Demo</title>
+
+    <!-- External CSS -->
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- Importmap for loading Three.js and other dependencies -->
+    <script type="importmap">
+        {
+            "imports": {
+              "three": "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js/+esm",
+              "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/",
+              "talkinghead": "../middleware/talkinghead.mjs"
+            }
+        }
+    </script>
+
+    <!-- Module scripts for avatar and main functionality -->
+    <script type="module" src="../virtualcharacter.js"></script>
+    <script type="module" src="../interaction.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        #avatar {
+            display: block;
+            height: 100%;
+            max-height: 100%;
+            left: 0;
+            right: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container no-form">
+        
+        <div class="header">
+            <div style = "text-align: center;">
+                <p id = "skip-text" style= "display: none;">Response stuck loading? Wait 15 seconds and click this button to skip to the next response. This may slightly glitch the next response; but will not change the remaining intervention.</p>
+                <button id="skip-button" style="display: none; margin: 0 auto;" class="skip-button">Skip</button>
+            </div>
+        </div>
+
+        <div class="avatar">
+            <div id="loading"></div>
+            <div id="avatar"></div> <!-- Avatar will be injected here -->
+        </div>
+
+        <div class="chat">
+            <div class="name-label">Alex</div> <!-- The character's name -->
+            <div class="text-container"> <!-- New inner container to restrict text area -->
+                <div id="dialogue-text">
+                    <span class="highlight">Press the "Start" Button to start the demo.</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="form" class="form">
+            <div id="form-container"></div>
+        </div>
+
+        <div class="button">
+            <div id="options-container">
+                <button id="start-btn" style="display: none;" class="game-button">Start</button>
+            </div>
+        </div>
+
+        <div class="a-gap"></div>
+        <div class="b-gap">
+        </div>
+        <div class="footer">App not working? Contact christopheryou@ufl.edu with a screenshot of your error.</div>
+    </div>
+
+</body>
+
+</html>

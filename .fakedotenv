@@ -1,0 +1,4 @@
+OPENAI_API_KEY="your-key-here"
+PORT="8000"
+COMPLETIONS_MODEL="your-model-here"
+SESSION_KEY="your-session-key-here"
