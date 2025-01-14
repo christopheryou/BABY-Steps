@@ -229,7 +229,7 @@ function getRandomMaxWords() {
 }
 
 // Helper function to process a single sentence
-async function processSentence(sentence, nodeData, req, isFirstChunk) {
+async function processSentence(sentence, nodeData, isFirstChunk) {
     const chunkType = isFirstChunk ? "NEW AUDIO" : "CHUNK";
     const createdFiles = [];
     const tempDir = '/audio'; // Directory for temporary files
