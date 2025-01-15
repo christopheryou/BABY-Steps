@@ -232,7 +232,7 @@ function getRandomMaxWords() {
 async function processSentence(sentence, nodeData, isFirstChunk) {
     const chunkType = isFirstChunk ? "NEW AUDIO" : "CHUNK";
     const createdFiles = [];
-    const tempDir = '/audio'; // Directory for temporary files
+    const tempDir = './audio'; // Directory for temporary files
     const gender = 'female';
 
     try {
