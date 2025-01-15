@@ -9,3 +9,7 @@ You'll need to replace the .fakedotenv with a real .env, primarily you'll need a
 4. npm run demo
 5. localhost:8000
 6. Press 'start' to begin
+
+
+Documentation can be found here:
+https://docs.google.com/document/d/1k__te_etVll1PAxjq89d9KBEcs2wxFdqJkIXIEYUo3E/edit?tab=t.0
