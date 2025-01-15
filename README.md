@@ -2,7 +2,8 @@
  The core files for the BABY Platform.
 
 To run demo:
-You'll need to replace the .fakedotenv with a real .env, primarily you'll need an openai key
+You'll need to replace the .fakedotenv with a real .env, primarily you'll need an openai key. Before you start, you might need NodeJS... https://nodejs.org/en/download/
+
 1. cd demo folder
 2. npm install (you may need to npm install express)
 3. replace .fakedotenv with your .env items
