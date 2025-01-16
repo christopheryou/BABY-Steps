@@ -11,6 +11,7 @@ You'll need to replace the .fakedotenv with a real .env, primarily you'll need a
 5. localhost:8000
 6. Press 'start' to begin
 
+If you don't want to use the demo template code, the core JS files are provided in the other "Core Files for Your Project" folder. Take them and do whatever you need.
 
 Documentation can be found here:
 https://docs.google.com/document/d/1k__te_etVll1PAxjq89d9KBEcs2wxFdqJkIXIEYUo3E/edit?tab=t.0
