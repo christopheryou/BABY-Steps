@@ -1,21 +1,22 @@
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
-const baseDir = path.join(__dirname);
-const InteractionRouter = require('./back-end/Interaction');
-const GenerateRouter = require('./back-end/GenerateScripts');
+const InteractionRouter = require('./routes/Interaction');
+const { safeScenario } = require('./scenario.js');
 const app = express();
+require('dotenv').config(); // Load variables into process.env
 
-// Setup EJS if you are rendering EJS templates (not mandatory for serving static frontend)
+
+// ===== App Config =====
 app.set('view engine', 'ejs');
 
-// Serve static files from the public directory (for frontend: index.html, index.css, index.js)
-app.use(express.static(path.join(__dirname, 'front-end')));
+// ===== Static & Public Files =====
+app.use(express.static(path.join(__dirname, 'public')));
 
-// To handle JSON requests
+// ===== Body Parsers =====
 app.use(express.json());
 
-// Session configuration
+// ===== Session =====
 app.use(session({
     secret: process.env.SESSION_KEY, // Make sure SESSION_KEY is in your .env
     resave: false,
@@ -28,16 +29,14 @@ app.use(session({
 
 // <--- Routes --->
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'front-end', 'interaction.html'));
-});
+    res.render("chat", {
+        scenario: safeScenario
+    });
+})
 
 app.use('/Interaction', (req, res, next) => {
     next();
 }, InteractionRouter);
-
-app.use('/Generate', (req, res, next) => {
-    next();
-}, GenerateRouter);
 
 
 

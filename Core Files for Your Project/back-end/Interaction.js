@@ -1,17 +1,16 @@
 const express = require('express');
-const path = require('path');
+const session = require('express-session');
+// Adjust path to root
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') }); 
 
-require('dotenv').config({ path: path.resolve(__dirname, '../.env') }); // Adjust path to root
 // Used to generate responses
 const OpenAI = require('openai')
 const openai = new OpenAI({apiKey : process.env.OPENAI_API_KEY});
 
 // Used to Speed Up Audio (if needed)
 const fs = require('fs');
-const ffmpeg = require('fluent-ffmpeg'); // Import ffmpeg for audio processing
-const ffmpegPath = require('ffmpeg-static'); // Path to the static binary
-ffmpeg.setFfmpegPath(ffmpegPath); // Set the path explicitly
 
+// Export Router
 const router = express.Router()
 router.use(express.static(path.join(__dirname, 'public')));
 const jsonDir = path.resolve(__dirname, './json')
@@ -25,28 +24,33 @@ const placeholdersPath = path.join(jsonDir, '/Placeholders.json');
 // Preload data at the beginning
 let placeholdersData;
 let scriptData;
+initConversationScript();
+initPlaceholders();
+initSession();
 
-try {
-    scriptData = JSON.parse(fs.readFileSync(scriptPath, 'utf8'));
-    console.log("Successfully preloaded script metadata.");
-} catch (err) {
-    console.error("Error reading or parsing audio", err);
-    scriptData = []; // Fallback to empty data
+
+function initConversationScript() {
+    try {
+        scriptData = JSON.parse(fs.readFileSync(scriptPath, 'utf8'));
+        console.log("Successfully preloaded script metadata.");
+    } catch (err) {
+        console.error("Error reading or parsing CompleteConversationScript.json", err);
+        scriptData = []; // Fallback to empty data
+    }
 }
 
-
-try {
-    placeholdersData = JSON.parse(fs.readFileSync(placeholdersPath, 'utf8'));
-    console.log("Successfully preloaded placeholders data.");
-} catch (err) {
-    console.error("Error reading or parsing Placeholders.json:", err);
-    placeholdersData = []; // Fallback to empty data
+function initPlaceholders() {
+    try {
+        placeholdersData = JSON.parse(fs.readFileSync(placeholdersPath, 'utf8'));
+        console.log("Successfully preloaded placeholders data.");
+    } catch (err) {
+        console.error("Error reading or parsing Placeholders.json:", err);
+        placeholdersData = []; // Fallback to empty data
+    }
+    
 }
 
-
-// The main function to handle user input.
-router.post('/:nodeId', async (req, res, next) => {
-    // console.log(req.session.params);
+function initSession() {
     if (!req.session.params)
         req.session.params = {};
     if (!req.session.params.messages) {
@@ -57,19 +61,26 @@ router.post('/:nodeId', async (req, res, next) => {
             content: systemMessage
         }
         req.session.params.messages.push(systemObject);
-    }
+    }    
+}
 
-    const nodeId = parseInt(req.params.nodeId);
+
+// The main function to handle user input.
+router.post('/:nodeName', async (req, res, next) => {
+    const nodeName = req.params.nodeName;
     const additionalData = req.body || {};
-    const gender = "female";
+    const voiceGender = req.session?.params?.voiceGender || "female";
+
     try {
         // Find node data in preloaded metadata
-        const nodeData = scriptData.find(item => item.nodeId === nodeId);
+        const nodeObject = scriptData[nodeName] || null; 
 
-        if (!nodeData) {
-            console.error(`Node with ID ${nodeId} not found.`);
-            return res.status(404).json({ error: `Node with ID ${nodeId} not found` });
+        if (!nodeObject) {
+            console.error(`Node with NAME ${nodeName} not found in ${scriptPath}.`);
+            return res.status(404).json({ error: `Node with ID ${nodeName} not found` });
         }
+
+        const isStatic = nodeObject.response
 
         // No ChatGPT Usage
         if (nodeData.dialogue && nodeData.response == null) {

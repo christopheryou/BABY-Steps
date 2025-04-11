@@ -1,0 +1,41 @@
+{
+  "START_FLAG": {
+    "input": {
+      "button": {
+        "options": [
+          {
+            "label": "Start Conversation",
+            "nextNode": "MAIN_NODE"
+          }
+        ]
+      }
+    }
+  },
+  "MAIN_NODE": {
+    "input": {
+      "text": {
+        "nextNode": "MAIN_NODE"
+      },
+      "button": {
+        "options": [
+          {
+            "label": "End Conversation",
+            "nextNode": "END_FLAG"
+          }
+        ]
+      }
+    }
+  },
+  "END_FLAG": {
+    "input": {
+      "button": {
+        "options": [
+          {
+            "label": "Complete Survey",
+            "surveyLink": "www.google.com"
+          }
+        ]
+      }
+    }
+  }
+}

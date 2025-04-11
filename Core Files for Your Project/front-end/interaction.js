@@ -288,7 +288,7 @@ function renderInput(input, wholeDialogue, url = null) {
                 nextNode = input.nextNode;
                 nextResponse = inputElementValue;
                 // Send response
-                handleUserInput(nextNode, { alexInput: wholeDialogue, userInput: inputElementValue });
+                handleUserInput(nextNode, { agentInput: wholeDialogue, userInput: inputElementValue });
             } else {
                 alert("Please enter a response.");
             }
@@ -346,7 +346,7 @@ function renderOptions(options, wholeDialogue, url) {
                 optionsContainer.appendChild(loadingSpinner);
 
                 const additionalData = {
-                    alexInput: wholeDialogue,
+                    agentInput: wholeDialogue,
                     userInput: option.optionText // Include the text of the selected option
                 };
                 handleUserInput(option.nextNode, additionalData); // Pass additionalData to handleUserInput

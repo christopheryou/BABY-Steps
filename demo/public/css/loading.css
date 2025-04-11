@@ -1,0 +1,111 @@
+#loading-screen {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    z-index: 999999999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+#loading-screen {
+    transition: opacity 1s ease;
+  }
+
+#loading-screen.out {
+    opacity: 0; /* Fade out */
+    z-index: -1;
+}
+
+#loading-animation {
+    display: none;
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+.text-center {
+    width: 500px;
+}
+.progress2 {
+    border-radius: 30px;
+    background-color: #fff;
+  }
+  
+  .progress-bar2 {
+    height: 18px;
+    border-radius: 30px;
+    transition: 0.4s linear;
+    transition-property: width, background-color;
+  }
+  
+  .progress-moved .progress-bar2 {
+    background-color: #9db991;
+    animation: progress 5s forwards;
+  }
+  
+  @keyframes progress {
+    0% {
+      width: 0%;
+      background: #001519;
+    }
+
+    25% {
+        width: 50%;
+        background: #007a8e;
+      }
+
+      50% {
+        width: 50%;
+        background: #12706a;
+      }
+  
+    100% {
+      width: 100%;
+      background: #9db991;
+      box-shadow: 0 0 40px #9db991;
+    }
+  }
+  
+  .loader {
+    --p: 0;
+    animation: p 4s steps(100) forwards, 
+                pcolor 4s forwards;
+    counter-reset: p var(--p);
+    font-size: 2.1em;
+    color: #9db991;
+  }
+  
+  .loader:after {
+    content: counter(p) "%";
+  }
+  
+  @keyframes p {
+    90%,
+    100% {
+      --p: 100;
+    }
+  }
+
+  @keyframes pcolor {
+    0% {
+      color: #001519;
+    }
+
+    25% {
+        color: #007a8e;
+      }
+
+      50% {
+        color: #12706a;
+      }
+  
+    100% {
+      color: #9db991;
+    }
+  }
