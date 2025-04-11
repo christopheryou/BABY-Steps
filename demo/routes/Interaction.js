@@ -276,15 +276,6 @@ async function getScriptedResponse(req) {
                 responseData.additionalMedia = node.additionalMedia
         }
 
-        if (nodeName === "END_FLAG") {
-            const surveyLink = node?.input?.button?.options?.surveyLink
-            if (!surveyLink || surveyLink === "") {
-                const scenarioId = req.session?.params?.scenarioId;
-                node.input.button.options.surveyLink == `/interact/${scenarioId}`;
-                // responseData.dialogue = "No post-survey link attached; please either return to the Survey, close out, or contact your researcher if you have further questions or steps to complete."
-            }
-        }
-
         return responseData;
     } catch (err) {
         console.error('Error during request processing:', err);
