@@ -51,6 +51,6 @@ process.on('unhandledRejection', (reason, promise) => {
 });
 
 
-app.listen(3000 || process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log(`Server is running on http://localhost:${process.env.PORT || 3000}`);
 });

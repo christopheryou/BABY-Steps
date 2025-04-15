@@ -128,7 +128,7 @@ async function getOpenResponse(req) {
 
       const messages = req.session?.params?.messages;
       const generatedDialogue = (nodeName !== "START_FLAG" && nodeName !== "END_FLAG")
-          ? await generateKnowledgeBaseResponse(messages, vectorStoreId, apiKey, model)
+          ? await generateKnowledgeBaseResponse(messages)
           : null;
 
       if (generatedDialogue && generatedDialogue !== "") {

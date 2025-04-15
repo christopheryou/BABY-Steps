@@ -15,7 +15,7 @@ const scenario = {
     },
     characterAvatar: {
         body: "F" || "M", // Female or Male Body
-        cameraView: "full", // full, mid, upper, head
+        cameraView: "upper", // full, mid, upper, head
         mood: "neutral",
         name: "CHARACTER_NAME",
         path: path.join('characters', 'female_avatar.glb'),
@@ -28,8 +28,8 @@ const scenario = {
         elevenLabsTtsEndpoint: "/Interaction/ElevenLabs" // Default ^
     },
     conversationScript: {
-        type: "Scripted" || "Open",
-        path: path.join(jsonDir,'CompleteConversationScript2.json')
+        type: "Open" || "Scripted",
+        path: path.join(jsonDir,'OpenConversationScript.json')
     },
     verbalBackchannels: {
         enabled: false,
