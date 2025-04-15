@@ -5,7 +5,7 @@
         "options": [
           {
             "label": "Start Conversation",
-            "nextNode": "Section1Introduction"
+            "nextNode": "IntroductionNode"
           }
         ]
       }
@@ -18,85 +18,87 @@
       "button": {
         "options": [
           {
-            "label": "Complete Survey",
-            "surveyLink": null
+            "label": "Go to IVA's Website",
+            "surveyLink": "https://iva.acm.org/2025/"
           }
         ]
       }
     },
     "reachable": true,
-    "visualOrder": 4
+    "visualOrder": 7
   },
-  "Section1Introduction": {
+  "IntroductionNode": {
     "visualOrder": 1,
     "response": {
-      "dialogue": "Hi, I'm ALEX, your virtual health assistant. Welcome to the nutrition module!"
+      "dialogue": "With BABY, one can easily build educational content for users. Here's the PDF for the article!"
+    },
+    "reachable": true,
+    "additionalMedia": {
+      "mediaType": "PDF",
+      "link": "/additionalMedia/loremIpsum.pdf"
     },
     "input": {
       "button": {
         "options": [
           {
-            "label": "Hello, Alex!",
-            "nextNode": "intro1"
+            "label": "Thanks! What else can you do?",
+            "nextNode": "NextNode"
+          }
+        ],
+        "selectMultiple": false
+      }
+    }
+  },
+  "NextNode": {
+    "visualOrder": 3,
+    "response": {
+      "dialogue": "Check out this website about the Association for Computing Machinery!"
+    },
+    "reachable": true,
+    "input": {
+      "text": {
+        "nextNode": "LoopNode"
+      },
+      "button": {
+        "options": [
+          {
+            "label": "Awesome! Can we talk too?",
+            "nextNode": "LoopNode"
+          }
+        ],
+        "selectMultiple": false
+      }
+    },
+    "additionalMedia": {
+      "mediaType": "Link",
+      "link": "https://www.acm.org/"
+    }
+  },
+  "LoopNode": {
+    "visualOrder": 4,
+    "response": {
+      "dialogue": "N/A",
+      "useAi": {
+        "appendAiDialogue": {
+          "prompt": "Response to the user's query individually, in a brief one sentence that is fun and pleasant to listen to."
+        },
+        "length": 25
+      }
+    },
+    "input": {
+      "text": {
+        "nextNode": "LoopNode"
+      },
+      "button": {
+        "options": [
+          {
+            "label": "End Conversation",
+            "nextNode": "END_FLAG"
           }
         ],
         "selectMultiple": false
       }
     },
     "reachable": true
-  },
-  "intro1": {
-    "visualOrder": 2,
-    "response": {
-      "dialogue": "Nice to meet you."
-    },
-    "reachable": true,
-    "input": {
-      "button": {
-        "options": [
-          {
-            "label": "Nice to meet you too, how are you?",
-            "nextNode": "intro2"
-          }
-        ],
-        "selectMultiple": false
-      }
-    }
-  },
-  "intro2": {
-    "visualOrder": 3,
-    "response": {
-      "dialogue": "I am doing great. I’m excited to get to know a bit about you and have a chance to give you some personalized information about your diet and health. Today, we will discuss foods and beverages that increase your risk for colorectal cancer.\\nI’ll also share some tips for healthy eating and how to prevent colorectal cancer."
-    },
-    "reachable": true,
-    "input": {
-      "button": {
-        "options": [
-          {
-            "label": "That sounds good, I'd like to learn more.",
-            "nextNode": "intro3"
-          }
-        ],
-        "selectMultiple": false
-      }
-    }
-  },
-  "intro3": {
-    "visualOrder": 5,
-    "response": {
-      "dialogue": "Wonderful! Our conversation today will last about 12 minutes. These 12 minutes could change your life, so congratulations for taking time for your health. I’ll ask you some questions and you can answer by clicking the buttons that appear on the screen.\nBefore we begin, it's best if you have a quiet space because once I start talking there’s no going back!\nNo seriously, there isn’t a back button yet!\nSo, are you ready to begin?"
-    },
-    "reachable": true,
-    "input": {
-      "button": {
-        "options": [
-          {
-            "label": "Yes.",
-            "nextNode": "END_FLAG"
-          }
-        ],
-        "selectMultiple": false
-      }
-    }
   }
 }
