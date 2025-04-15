@@ -71,7 +71,7 @@ export async function characterAudio(audio) {
       head.playGesture('👋');
       first = false;
     }
-    head.replaceAndSpeakNewAudio(audio);
+    await head.replaceAndSpeakNewAudio(audio);
 
   } catch (error) {
     console.error('Error during speech processing:', error);
@@ -83,21 +83,13 @@ export async function characterAudioQueue(audio) {
   try {
     // console.log("Checking speaking: ", head.isSpeaking, head.speechQueue);      
     // can have subtitles! and other stuff. hve to look more into if u want it
-    head.speakAudio(audio, null, null);
+    await head.speakAudio(audio, null, null);
 
   } catch (error) {
     console.error('Error during speech processing:', error);
   }
 }
 
-// for streaming audio, waits for current audio to finish
-export async function stopSpeaking() {
-  try {
-    head.stopSpeaking();
-  } catch (error) {
-    console.error('Stopping speaking', error);
-  }
-}
 
 export async function characterText(text) {
   try {
@@ -105,7 +97,15 @@ export async function characterText(text) {
       head.playGesture('👋');
       first = false;
     }
-    head.replaceAndSpeakNewText(text);
+    await head.replaceAndSpeakNewText(text);
+  } catch (error) {
+    console.error('Error during speech processing:', error);
+  }
+}
+
+export async function characterTextQueue(text) {
+  try {
+    await head.speakText(text);
   } catch (error) {
     console.error('Error during speech processing:', error);
   }

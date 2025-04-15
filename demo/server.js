@@ -1,7 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
-const InteractionRouter = require('./routes/Interaction');
+const router = require('./routes/Interaction');
 const { safeScenario } = require('./scenario.js');
 const app = express();
 require('dotenv').config(); // Load variables into process.env
@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 
 app.use('/Interaction', (req, res, next) => {
     next();
-}, InteractionRouter);
+}, router);
 
 
 
@@ -51,6 +51,6 @@ process.on('unhandledRejection', (reason, promise) => {
 });
 
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(3000 || process.env.PORT || 3000, () => {
     console.log(`Server is running on http://localhost:${process.env.PORT || 3000}`);
 });

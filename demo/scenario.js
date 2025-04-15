@@ -11,27 +11,28 @@ const scenario = {
     largeLanguageModel: {
         model: "gpt-4o-mini",
         apiKey: apiKey || "N/A",
+        systemPrompt: "You are a virtual assistant who's goal is to help answer questions succinctly. Address the incoming user messages accurately and succinctly."
     },
     characterAvatar: {
         body: "F" || "M", // Female or Male Body
-        cameraView: "upper", // full, mid, upper, head
+        cameraView: "full", // full, mid, upper, head
         mood: "neutral",
         name: "CHARACTER_NAME",
         path: path.join('characters', 'female_avatar.glb'),
     },
     characterVoice: {
         type: "google" || "elevenLabs",
-        model: "en-US-Neural2-F" || "YqApuarN9Z1zDLV3DTEA",
+        model: "en-US-Neural2-F" || "YqApuarN9Z1zDLV3DTEA", //Two random voice models, first one is Google, second is ElevenLabs
         apiKey: audioApiKey || "N/A",
         googleTtsEndpoint: "/Interaction/Google", // Default - Does not need to be changed unless you rename endpoint
         elevenLabsTtsEndpoint: "/Interaction/ElevenLabs" // Default ^
     },
     conversationScript: {
         type: "Scripted" || "Open",
-        path: path.join(jsonDir,'ScriptedConversationScript.json')
+        path: path.join(jsonDir,'CompleteConversationScript2.json')
     },
     verbalBackchannels: {
-        enabled: true,
+        enabled: false,
         path: path.join(jsonDir,'VerbalBackchannels.json')
     },
     researcherEmail: "email@email.com", // In case you want to provide front-end users with your email, in case anything breaks.
@@ -47,6 +48,7 @@ const safeScenario = {
     ttsVoice: scenario?.characterVoice?.model,
     researcherEmail: scenario.researcherEmail,
     templateType: scenario.templateType,
+    verbalBackchannelsEnabled: scenario.verbalBackchannels.enabled,
 }
 
 module.exports = {

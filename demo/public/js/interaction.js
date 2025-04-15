@@ -1,19 +1,20 @@
-import { characterAudio, characterText } from './character.js';
+import { characterAudio, characterAudioQueue, characterTextQueue, characterText } from './character.js';
 
 var characterName = '';
 var researcherEmail = '';
 var voiceType = '';
 var templateType = '';
 var ttsEndpoint = '';
+var verbalBackchannelsEnabled = false;
 
 function normalizeUrl(url) {
     if (!url) return null;
     if (!/^https?:\/\//i.test(url)) {
-      return `https://${url}`;
+        return `https://${url}`;
     }
     return url;
-  }
-  
+}
+
 document.addEventListener('DOMContentLoaded', (event) => {
     const scenario = window.__SCENARIO__;
     characterName = scenario?.characterAvatar?.name || "Assistant";
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     researcherEmail = scenario?.researcherEmail;
     templateType = scenario?.templateType;
     ttsEndpoint = scenario?.ttsEndpoint;
+    verbalBackchannelsEnabled = scenario?.verbalBackchannelsEnabled;
     showLoading();
 });
 
@@ -53,7 +55,7 @@ function createExpandButton() {
     return expandBtn;
 }
 
-function appendMessage(message, speaker, nextNode = null, textInput = false, buttonInput = false, additionalMedia = null) {
+function appendMessage(message, speaker, nextNode = null, textInput = false, buttonInput = false, additionalMedia = null, useTypeWriter = true) {
     if (templateType === "conversation-log") {
         // console.log("IN APPEND MESSAGE", buttonInput)
         const chatBox = document.getElementById("chat-container")
@@ -89,7 +91,7 @@ function appendMessage(message, speaker, nextNode = null, textInput = false, but
                 messageItem.appendChild(labelText);
                 messageItem.appendChild(messageText);
                 chatBox.appendChild(messageItem)
-                displaySubtitles(message, messageText, textInput, buttonInput)
+                displaySubtitles(message, messageText, textInput, buttonInput, useTypeWriter)
             }
             else {
                 if (textInput === true) {
@@ -135,7 +137,7 @@ function appendMessage(message, speaker, nextNode = null, textInput = false, but
                 document.getElementById("modal-media").appendChild(iframe2);
                 modal.style.visibility = "visible"
                 modal.style.opacity = "100"
-                document.getElementById("modal-close").addEventListener('click', () => { modal.style.visibility = "hidden"; modal.style.opacity = "0"; document.getElementById("modal-media").innerHTML="" })
+                document.getElementById("modal-close").addEventListener('click', () => { modal.style.visibility = "hidden"; modal.style.opacity = "0"; document.getElementById("modal-media").innerHTML = "" })
             });
         } else if (additionalMedia.mediaType === "Image") {
             const image = document.createElement('img');
@@ -152,11 +154,11 @@ function appendMessage(message, speaker, nextNode = null, textInput = false, but
                 document.getElementById("modal-media").appendChild(image2);
                 modal.style.visibility = "visible"
                 modal.style.opacity = "100"
-                document.getElementById("modal-close").addEventListener('click', () => { modal.style.visibility = "hidden"; modal.style.opacity = "0" , document.getElementById("modal-media").innerHTML=""})
+                document.getElementById("modal-close").addEventListener('click', () => { modal.style.visibility = "hidden"; modal.style.opacity = "0", document.getElementById("modal-media").innerHTML = "" })
             });
         } else if (additionalMedia.mediaType === "Link") {
             const iframe = document.createElement('iframe');
-            iframe.id= "myIframe"
+            iframe.id = "myIframe"
             // 2. Set the attributes
             iframe.src = additionalMedia.link;
             iframe.width = "95%";
@@ -174,7 +176,7 @@ function appendMessage(message, speaker, nextNode = null, textInput = false, but
                 document.getElementById("modal-media").appendChild(iframe2);
                 modal.style.visibility = "visible"
                 modal.style.opacity = "100"
-                document.getElementById("modal-close").addEventListener('click', () => { modal.style.visibility = "hidden"; modal.style.opacity = "0" , document.getElementById("modal-media").innerHTML=""})
+                document.getElementById("modal-close").addEventListener('click', () => { modal.style.visibility = "hidden"; modal.style.opacity = "0", document.getElementById("modal-media").innerHTML = "" })
             });
         }
         mediaBox.style.visibility = "visible"
@@ -206,27 +208,46 @@ function removeLoadingDots() {
 }
 
 async function handleUserInput(nodeName, body) {
-    body.nodeName = nodeName
-    const response = await fetch(`/Interaction/Dialogue`, {
+    body.nodeName = nodeName;
+
+    if (verbalBackchannelsEnabled && nodeName !== "START_FLAG" && nodeName !== "END_FLAG") {
+        await handleBackchannel();
+    }
+
+    const dialogueFetch = fetch(`/Interaction/Dialogue`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
     });
+
     // console.log("GOT RESPONSE FROM BACKEND")
+    const response = await dialogueFetch;
     if (!response.ok) {
         console.error('Failed to fetch response:', response.statusText);
         return;
     }
 
-    const data = await response.json(); // gives ENTIRE audio at once
-
-    // console.log(data)
-
+    const data = await response.json();
+    console.log(data);
     // Small wait before character speaks, for loading dots to show properly
     setTimeout(async function () {
         if (data.dialogue && data.dialogue !== "") {
-            // characterText(data.dialogue);
-            if (voiceType === "elevenLabs") {
+            // Static Audios
+            if (data.audioBase64 && data.words && data.wtimes && data.wdurations) {
+                const audioData = {
+                    audioBase64: data.audioBase64,
+                    words: data.words,
+                    wtimes: data.wtimes,
+                    wdurations: data.wdurations,
+                }
+                const talkingHeadAudio = await parseAudio(audioData);
+                if (verbalBackchannelsEnabled && nodeName !== "START_FLAG" && nodeName !== "END_FLAG")
+                    characterAudioQueue(talkingHeadAudio);
+                else
+                    characterAudio(talkingHeadAudio)
+            }
+            // ElevenLabs Audio
+            else if (voiceType === "elevenLabs") {
                 const audioBody = { text: data.dialogue };
                 const audioResponse = await fetch(ttsEndpoint, {
                     method: 'POST',
@@ -235,19 +256,26 @@ async function handleUserInput(nodeName, body) {
                 });
                 if (audioResponse.ok) {
                     console.log("trying to character audio");
-    
+
                     const audioData = await audioResponse.json(); // gives ENTIRE audio at once
                     // console.log(audioData);
                     const talkingHeadAudio = await parseAudio(audioData);
                     console.log("talking Head Audio!");
                     // console.log(JSON.stringify(talkingHeadAudio));
-                    characterAudio(talkingHeadAudio);
+                    if (verbalBackchannelsEnabled && nodeName !== "START_FLAG" && nodeName !== "END_FLAG")
+                        characterAudioQueue(talkingHeadAudio);
+                    else
+                        characterAudio(talkingHeadAudio)
                 }
             }
+            // Google Audio
             else {
-                characterText(data.dialogue);
+                if (verbalBackchannelsEnabled && nodeName !== "START_FLAG" && nodeName !== "END_FLAG")
+                    characterTextQueue(data.dialogue);
+                else 
+                    characterText(data.dialogue);
             }
-            
+
         }
         appendMessage(data.dialogue, "Agent", null, data.input.hasOwnProperty("text"), data.input.hasOwnProperty("button"), data.additionalMedia)
     }, 500);
@@ -294,7 +322,7 @@ function displayOptions(options, nodeName) {
     });
 }
 
-function displaySubtitles(dialogue, divItem, textInput, buttonInput) {
+function displaySubtitles(dialogue, divItem, textInput, buttonInput, useTypeWriter = true) {
     const dialogueSection = divItem;
     const chatBox = document.getElementById("chat-container")
 
@@ -305,33 +333,39 @@ function displaySubtitles(dialogue, divItem, textInput, buttonInput) {
     let i = 0; // Character index
 
     // Typewriter effect
-    function typeWriter() {
-        if (!typewriterRunning) {
-            // If the effect is canceled, instantly show remaining text
-            cancelTypewriterEffect(dialogueSection, dialogue, sources);
-            return;
+    if (useTypeWriter) {
+        function typeWriter() {
+            if (!typewriterRunning) {
+                // If the effect is canceled, instantly show remaining text
+                cancelTypewriterEffect(dialogueSection, dialogue, sources);
+                return;
+            }
+            if (i < textToAdd.length) {
+                // Append each character
+                if (i === 0 && existingText.length > 0) {
+                    dialogueSection.innerHTML += ' '; // Add a space before new text
+                }
+                dialogueSection.innerHTML += textToAdd[i]; // Append character
+                i++;
+                setTimeout(typeWriter, 30); // Adjust speed (20ms per character)
+            } else {
+                typewriterRunning = false; // Reset the flag when done
+                if (textInput === true) {
+                    document.getElementById('input-area').style.visibility = 'visible'
+                }
+                if (buttonInput === true) {
+                    document.getElementById("options-area").style.visibility = 'visible'
+                }
+            }
+            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
         }
-        if (i < textToAdd.length) {
-            // Append each character
-            if (i === 0 && existingText.length > 0) {
-                dialogueSection.innerHTML += ' '; // Add a space before new text
-            }
-            dialogueSection.innerHTML += textToAdd[i]; // Append character
-            i++;
-            setTimeout(typeWriter, 30); // Adjust speed (20ms per character)
-        } else {
-            typewriterRunning = false; // Reset the flag when done
-            if (textInput === true) {
-                document.getElementById('input-area').style.visibility = 'visible'
-            }
-            if (buttonInput === true) {
-                document.getElementById("options-area").style.visibility = 'visible'
-            }
-        }
-        chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
+
+        typeWriter(); // Start typing animation
+    }
+    else {
+        dialogueSection.innerHTML = textToAdd
     }
 
-    typeWriter(); // Start typing animation
 }
 
 function cancelTypewriterEffect(dialogueSection, wholeDialogue, sources) {
@@ -400,5 +434,20 @@ async function parseAudio(audio) {
     } catch (error) {
         console.error("Error decoding audio data:", error);
         throw error;
+    }
+}
+
+
+async function handleBackchannel() {
+    try {
+        const res = await fetch('/Interaction/VerbalBackchannel');
+        if (!res.ok) throw new Error('Failed to fetch backchannel audio');
+
+        const audioData = await res.json();
+        const talkingHeadAudio = await parseAudio(audioData);
+        await characterAudio(talkingHeadAudio); // must be awaitable (as discussed)
+        await appendMessage(audioData.dialogue, "Agent", null, null, null, null, false);
+    } catch (err) {
+        console.error("Backchannel error:", err);
     }
 }
