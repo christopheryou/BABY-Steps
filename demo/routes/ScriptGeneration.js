@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const { scenario } = require('../scenario.js');
+const { scenario } = require('../scenario');
 const jsonDir = path.resolve(__dirname, '../json');
 
 const conversationScriptPath = scenario?.conversationScript?.path || "N/A";

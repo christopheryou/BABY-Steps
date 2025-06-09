@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const { ElevenLabsClient } = require('elevenlabs');
-const { scenario } = require('../scenario.js');
+const { scenario } = require('../scenario');
 const jsonDir = path.resolve(__dirname, '../json')
 const { getAudioDurationInSeconds } = require('get-audio-duration');
 
@@ -129,7 +129,7 @@ function getRandomVerbalBackchannel(verbalBackchannel) {
 
 // The five functions below are all helper functions to generate any "static" audios in your conversation script.
 // You don't need these if your system is fully using LLMs, with no pre-scripted dialogue.
-async function generateStaticAudiosInScriptedConversation(inputFilePathInJsonFolder = "ConversationScript.json", outputFilePathInJsonFolder = "ConversationScriptWithStaticAudios.json") {
+async function generateStaticAudiosInScriptedConversation(inputFilePathInJsonFolder = "ConversationScript.json", outputFilePathInJsonFolder = "ConversationScriptWithAudioFiles.json") {
 
   const inputFile = path.join(jsonDir, inputFilePathInJsonFolder);
   const outputFile = path.join(jsonDir, outputFilePathInJsonFolder);

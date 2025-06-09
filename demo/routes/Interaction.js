@@ -31,7 +31,6 @@ router.use(session({
 let verbalBackchannels = initVerbalBackchannels();
 let scriptData = initConversationScript();
 
-// generateOpenConversationScript("www.google.com");
 
 router.post('/Dialogue', async (req, res, next) => {
     if (!req.session.params)
@@ -211,9 +210,7 @@ async function getScriptedResponse(req) {
               
               Dialogue to Prepend To: ${generatedDialogues && generatedDialogues.length > 0 ? generatedDialogues[0] : 'No dialogue attached, simply create a pre-pended responses.'}
               
-              Prompt: ${prompt}
-              
-              STRICT: ONLY OUTPUT THE DIALOGUE TO PREPEND TO IN YOUR RESPONSE. DO NOT INCLUDE THE DIALOGUE YOU WILL BE PREPENDING TO.`;
+              Prompt: ${prompt}`;
 
               const messagesForPrepend = [...messages, { role: 'system', content: prependAiPrompt }];
               const generatedDialogue = await generateResponse(messagesForPrepend);
@@ -227,9 +224,7 @@ async function getScriptedResponse(req) {
               
               Dialogue to Append To: ${generatedDialogues && generatedDialogues.length > 0 ? generatedDialogues[0] : 'No dialogue attached, simply create an appended responses.'}  
 
-              Prompt: ${prompt}
-              
-              STRICT: ONLY OUTPUT THE DIALOGUE TO APPEND TO IN YOUR RESPONSE. DO NOT INCLUDE THE DIALOGUE YOU WILL BE APPENDING TO.`;
+              Prompt: ${prompt}`;
 
               const messagesForAppend = [...messages, { role: 'system', content: appendAiPrompt }];
               const generatedDialogue = await generateResponse(messagesForAppend);

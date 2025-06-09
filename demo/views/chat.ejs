@@ -11,11 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- External CSS -->
-    <link rel="stylesheet" href="/css/chatbot-template.css">
+    <link rel="stylesheet" href="/css/chat-template.css">
     <link rel="stylesheet" href="/css/loading.css">
     <!-- Importmap for loading Three.js and other dependencies -->
     <script>
-        // this is .ejs so this is not actually erroneous.
         window.__SCENARIO__ = <%- JSON.stringify(scenario) %>;
     </script>
     <script type="importmap">
@@ -35,7 +34,7 @@
     <div id="loading-screen">
         <div id="loading-animation">
             <div class="loading-content">
-              <div class="loader" style="--n: 1; --f: 0;">BABY PLATFORM | LOADING ... </div>
+              <div class="loader" style="--n: 1; --f: 0;">CONVERSATION | LOADING ... </div>
               <div id="loader-animation" class="progress2 progress-moved">
                 <div class="progress-bar2"></div>
               </div>

@@ -23,7 +23,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
     templateType = scenario?.templateType;
     ttsEndpoint = scenario?.ttsEndpoint;
     verbalBackchannelsEnabled = scenario?.verbalBackchannelsEnabled;
+    console.log(scenario);
     showLoading();
+
+    if (templateType === "panel-view") {
+        console.log("Here!");
+        document.getElementById("history").addEventListener('click', () => {
+            document.getElementById("chat-history").style.display = 'flex'
+            let chatContainer = document.getElementById("chat-history")
+            chatContainer.scrollTop = chatContainer.scrollHeight
+            document.getElementById("chat-container-bg").style.display = 'flex'
+        });
+
+        document.getElementById("close-chat-history-icon").addEventListener('click', () => {
+            document.getElementById("chat-history").style.display = 'none'
+            document.getElementById("chat-container-bg").style.display = 'none'
+        });
+    }
 });
 
 function showLoading() {
@@ -56,24 +72,24 @@ function createExpandButton() {
 }
 
 function appendMessage(message, speaker, nextNode = null, textInput = false, buttonInput = false, additionalMedia = null, useTypeWriter = true) {
-    if (templateType === "conversation-log") {
+    console.log("In appendMessage");
+    const labelText = document.createElement('div');
+    const messageText = document.createElement('div');
+    const messageItem = document.createElement('div');
+    labelText.className = "label-text";
+    document.getElementById("input-area").style.visibility = "hidden"
+    document.getElementById("options-area").style.visibility = "hidden"
+    document.getElementById("media-container").innerHTML = ""
+    document.getElementById("media-container").style.visibility = "hidden"
+
+    if (templateType === "chatlog-view") {
         // console.log("IN APPEND MESSAGE", buttonInput)
         const chatBox = document.getElementById("chat-container")
-        const labelText = document.createElement('div');
-        const messageText = document.createElement('div');
-        const messageItem = document.createElement('div');
-
-        document.getElementById("input-area").style.visibility = "hidden"
-        document.getElementById("options-area").style.visibility = "hidden"
-        document.getElementById("media-container").innerHTML = ""
-        document.getElementById("media-container").style.visibility = "hidden"
-
-        labelText.className = "label-text";
-
         speaker === 'user' ? labelText.innerText = `You` : labelText.innerText = characterName;
         speaker === 'user' ? messageText.className = "user-chatbot-message" : messageText.className = "agent-chatbot-message"
 
         if (speaker === 'user') {
+            console.log("in first?");
             if (message === 'text') {
                 message = document.getElementById('user-input').value;
                 let messageBody = { userInput: message }
@@ -85,6 +101,7 @@ function appendMessage(message, speaker, nextNode = null, textInput = false, but
             messageItem.appendChild(messageText);
             chatBox.appendChild(messageItem);
         } else {
+            console.log("in second?");
             removeLoadingDots()
             if (message) {
                 messageItem.className = "message-item"
@@ -94,6 +111,7 @@ function appendMessage(message, speaker, nextNode = null, textInput = false, but
                 displaySubtitles(message, messageText, textInput, buttonInput, useTypeWriter)
             }
             else {
+                console.log("in third");
                 if (textInput === true) {
                     document.getElementById('input-area').style.visibility = 'visible'
                 }
@@ -110,9 +128,67 @@ function appendMessage(message, speaker, nextNode = null, textInput = false, but
 
         chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
     }
-    if (templateType === "caption") {
-        var messageText = document.getElementById("avatar-dialogue")
-        displaySubtitles(message, messageText, false, false)
+    else if (templateType === "panel-view") {
+        console.log("in panel view");
+        const labelTextHistory = document.createElement('div');
+        labelTextHistory.className = "label-text";
+        const messageTextHistory = document.createElement('div');
+        const messageItemHistory = document.createElement('div');
+        var captionArea = document.getElementById("chat-container")
+        captionArea.innerHTML = ""
+        if (speaker !== 'user' && message) {
+            console.log("in first?");
+            labelText.innerText = characterName;
+            labelTextHistory.innerText = characterName;
+            console.log(labelTextHistory)
+            messageText.className = "alex-chatbot-message"
+            messageItem.className = "message-item"
+            messageItem.appendChild(labelText);
+            messageItem.appendChild(messageText);
+            captionArea.appendChild(messageItem);
+
+            messageTextHistory.className = "history-chatbot-message"
+            messageItemHistory.className = "message-item"
+            messageTextHistory.innerText = message
+            messageItemHistory.appendChild(labelTextHistory);
+            messageItemHistory.appendChild(messageTextHistory);
+            document.getElementById("chat-history").appendChild(messageItemHistory)
+            displaySubtitles(message, messageText, textInput, buttonInput)
+
+        } else if (speaker === 'user') {
+            console.log("in second?");
+
+            if (message === 'text') {
+                message = document.getElementById('user-input').value;
+                let messageBody = { userInput: message }
+                handleUserInput(nextNode, messageBody)
+            }
+            if (message !== "Start Conversation") {
+                labelTextHistory.innerText = "You";
+                messageItemHistory.appendChild(labelTextHistory);
+                messageTextHistory.className = "history-user-chatbot-message"
+                messageTextHistory.innerHTML = `${message}`;
+                messageItemHistory.className = "message-item"
+                messageItemHistory.appendChild(labelText);
+                messageItemHistory.appendChild(messageTextHistory);
+                document.getElementById("chat-history").appendChild(messageItemHistory)
+            }
+            document.getElementById('user-input').value = '';
+        }
+        else {
+            console.log("in third");
+            if (textInput === true) {
+                document.getElementById('input-area').style.display = 'flex'
+                document.getElementById('input-area').style.visibility = 'visible'
+
+            }
+            if (buttonInput === true) {
+                document.getElementById("options-area").style.display = 'flex'
+                document.getElementById("options-area").style.visibility = 'visible'
+
+            }
+        }
+
     }
     if (additionalMedia) {
         // console.log(additionalMedia)
@@ -272,12 +348,12 @@ async function handleUserInput(nodeName, body) {
             else {
                 if (verbalBackchannelsEnabled && nodeName !== "START_FLAG" && nodeName !== "END_FLAG")
                     characterTextQueue(data.dialogue);
-                else 
+                else
                     characterText(data.dialogue);
             }
 
         }
-        appendMessage(data.dialogue, "Agent", null, data.input.hasOwnProperty("text"), data.input.hasOwnProperty("button"), data.additionalMedia)
+        appendMessage(data.dialogue, characterName, null, data.input.hasOwnProperty("text"), data.input.hasOwnProperty("button"), data.additionalMedia)
     }, 500);
 
 
@@ -290,38 +366,87 @@ async function handleUserInput(nodeName, body) {
 
     if (data.input.button) {
         console.log("In buttons", data.input.button);
-        displayOptions(data.input.button.options, data.nodeName)
+        displayOptions(data.input.button.options, data.nodeName, data.input.button.selectMultiple)
     }
 
 }
 
-function displayOptions(options, nodeName) {
+function displayOptions(options, nodeName, selectMultiple = false) {
+    const selectedOptions = [];
+    const optionsArea = document.getElementById("options-area")
     options.forEach(option => {
-        const optionsArea = document.getElementById("options-area")
         const button = document.createElement('button');
-        button.textContent = option.label;
+        var unselectedIcon = document.createElement('i')
+        if (selectMultiple) {
+            console.log("SELECT MULTIPLE, ADD LIL CIRCLE")
+            unselectedIcon.className = "fa-regular fa-circle"
+            button.appendChild(unselectedIcon);
+        }
+        var buttonText = document.createElement("p")
+        buttonText.innerText = option.label
+        button.appendChild(buttonText);
         button.classList.add("option-btn")
+        if (selectMultiple) {
+            button.classList.add("unselected")
+        }
         button.addEventListener('click', () => {
-            if (nodeName === 'END_FLAG') {
-                if (option.surveyLink) {
-                    const surveyLink = normalizeUrl(option.surveyLink);
-                    window.open(surveyLink, '_blank')
+            if (selectMultiple) {
+                const index = selectedOptions.indexOf(option.label);
+                if (index > -1) {
+                    // Already selected, deselect
+                    selectedOptions.splice(index, 1);
+                    unselectedIcon.className = "fa-regular fa-circle"
+                    button.classList.add("unselected");
+                    button.classList.remove("selected");
                 } else {
-                    alert(`Seems like there's no survey here. If you think there's supposed to be one, contact your researcher: ${researcherEmail}`)
+                    // Add to selection
+                    selectedOptions.push(option.label);
+                    unselectedIcon.className = "fa-solid fa-circle-check"
+                    button.classList.add("selected");
+                    button.classList.remove("unselected");
                 }
+                console.log("Selected Options:", selectedOptions);
+            } else {
+                if (nodeName === 'END_FLAG') {
+                    if (option.surveyLink) {
+                        const surveyLink = normalizeUrl(option.surveyLink);
+                        window.open(surveyLink, '_blank')
+                    } else {
+                        alert(`Seems like there's no survey here. If you think there's supposed to be one, contact your researcher: ${researcherEmail}`)
+                    }
 
+                }
+                else {
+                    optionsArea.innerHTML = ''
+                    appendMessage(option.label, 'user', null, false, false)
+                    let messageBody = { userInput: option.label }
+                    handleUserInput(option.nextNode, messageBody)
+                }
             }
-            else {
-                optionsArea.innerHTML = ''
-                appendMessage(option.label, 'user', null, false, false)
-                let messageBody = { userInput: option.label }
-                handleUserInput(option.nextNode, messageBody)
-            }
+
         });
         optionsArea.appendChild(button);
     });
+    if (selectMultiple) {
+        const submitBtn = document.createElement('button');
+        submitBtn.textContent = "Submit";
+        submitBtn.classList.add("submit-btn");
+        submitBtn.addEventListener('click', () => {
+            if (selectedOptions.length > 0) {
+                appendMessage(selectedOptions.join(', '), 'user', null, false, false);
+                let messageBody = { userInput: selectedOptions };
+                handleUserInput(options[0].nextNode, messageBody); // Adjust logic if needed
+                optionsArea.innerHTML = '';
+            } else {
+                alert("Please select at least one option.");
+            }
+        });
+        var submitRow = document.createElement("div")
+        submitRow.classList.add("submit-row")
+        submitRow.appendChild(submitBtn)
+        optionsArea.appendChild(submitRow);
+    }
 }
-
 function displaySubtitles(dialogue, divItem, textInput, buttonInput, useTypeWriter = true) {
     const dialogueSection = divItem;
     const chatBox = document.getElementById("chat-container")
@@ -351,13 +476,18 @@ function displaySubtitles(dialogue, divItem, textInput, buttonInput, useTypeWrit
             } else {
                 typewriterRunning = false; // Reset the flag when done
                 if (textInput === true) {
+                    document.getElementById("input-area").style.display = 'flex'
+
                     document.getElementById('input-area').style.visibility = 'visible'
                 }
                 if (buttonInput === true) {
+                    document.getElementById("options-area").style.display = 'flex'
                     document.getElementById("options-area").style.visibility = 'visible'
                 }
             }
-            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
+            if (templateType !== "panel-view") {
+                chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
+            }
         }
 
         typeWriter(); // Start typing animation

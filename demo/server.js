@@ -2,7 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const path = require('path');
 const router = require('./routes/Interaction');
-const { safeScenario } = require('./scenario.js');
+const { safeScenario } = require('./scenario');
 const app = express();
 require('dotenv').config(); // Load variables into process.env
 
@@ -29,7 +29,33 @@ app.use(session({
 
 // <--- Routes --->
 app.get('/', (req, res) => {
+    const templateType = safeScenario?.templateType;
+    if (templateType == "chatlog-view") {
+        res.render("chat", {
+            scenario: safeScenario
+        });
+    }
+    else if (templateType == "panel-view") {
+        res.render("panel", {
+            scenario: safeScenario
+        });
+    }
+    else {
+        res.json("Error. No such template");
+    }
+
+})
+
+app.get('/chat', (req, res) => {
+    safeScenario.templateType = "chatlog-view"
     res.render("chat", {
+        scenario: safeScenario
+    });
+})
+
+app.get('/panel', (req, res) => {
+    safeScenario.templateType = "panel-view"
+    res.render("panel", {
         scenario: safeScenario
     });
 })

@@ -1,4 +1,4 @@
-const { scenario } = require('../scenario.js');
+const { scenario } = require('../scenario');
 
 const apiKey = scenario?.largeLanguageModel?.apiKey || "N/A";
 const vectorStoreId = scenario?.vectorStoreId || "N/A";
