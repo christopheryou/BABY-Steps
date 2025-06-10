@@ -348,7 +348,7 @@ async function pregenerateGoogleTTS(dialogue) {
 
 
 // Example Usage of Generating Static Audios in Scripted conversation:
-generateStaticAudiosInScriptedConversation("BABYScript.json", "BABYScriptWithAudio.json");
+// generateStaticAudiosInScriptedConversation("BABYScript.json", "BABYScriptWithAudio.json");
 
 // Example Usage of Generating Verbal Backchannels based on the verbalBackchannels array
 // generateVerbalBackchannels();

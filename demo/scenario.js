@@ -15,11 +15,11 @@ const scenario = {
         systemPrompt: `You are an assistant who answers questions about ACM HAI.`
     },
     characterAvatar: {
-        body: "M" || "F", // Female or Male Body
-        cameraView: "upper", // full, mid, upper, head
+        body: "F" || "M", // Female or Male Body
+        cameraView: "full", // full, mid, upper, head
         mood: "neutral",
         name: "BABY Assistant",
-        path: path.join('characters', 'female_avatar.glb'),
+        path: path.join('characters', 'avaturn.glb'),
     },
     characterVoice: {
         type: "elevenLabs" || "google",
@@ -31,7 +31,7 @@ const scenario = {
     conversationScript: {
         type: "Scripted" || "Open",
         path: path.join(jsonDir,'BABYScriptWithAudio.json'),
-        useKnowledgeBase: false,
+        useKnowledgeBase: true,
     },
     verbalBackchannels: {
         enabled: false,
