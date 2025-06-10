@@ -10,7 +10,7 @@
         ]
       }
     },
-    "reachable": true,
+    
     "visualOrder": 0,
     "wdurations": null
   },
@@ -25,7 +25,7 @@
         ]
       }
     },
-    "reachable": true,
+    
     "visualOrder": 7,
     "wdurations": null
   },
@@ -34,7 +34,7 @@
     "response": {
       "dialogue": "With BABY, one can easily build educational content for users. Here's the PDF for the article!"
     },
-    "reachable": true,
+    
     "additionalMedia": {
       "mediaType": "PDF",
       "link": "/additionalMedia/loremIpsum.pdf"
@@ -111,7 +111,7 @@
     "response": {
       "dialogue": "Check out this website about the Association for Computing Machinery!"
     },
-    "reachable": true,
+    
     "input": {
       "text": {
         "nextNode": "LoopNode"
