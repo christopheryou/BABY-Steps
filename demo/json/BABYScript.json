@@ -1,0 +1,93 @@
+{
+  "START_FLAG": {
+    "input": {
+      "button": {
+        "options": [
+          {
+            "label": "Start Conversation",
+            "nextNode": "Intro"
+          }
+        ]
+      }
+    },
+    "reachable": true,
+    "visualOrder": 0
+  },
+  "END_FLAG": {
+    "input": {
+      "button": {
+        "options": [
+          {
+            "label": "Complete Survey",
+            "surveyLink": null
+          }
+        ]
+      }
+    },
+    "reachable": true,
+    "visualOrder": 8
+  },
+  "Start": {
+    "visualOrder": 4,
+    "response": {
+      "dialogue": "The BABY System is designed to be a practical research tool for building conversational characters, like me, for research. The system consists of three modules: Character, Conversation, and Infrastructure. BABY doesn't use any game engines like Unity or Unreal, and instead renders everything through JavaScript, making it great for web-based research."
+    },
+    "input": {
+      "text": {
+        "nextNode": "Next1"
+      }
+    },
+    "reachable": true
+  },
+  "NewNode_1": {
+    "visualOrder": 6,
+    "response": {
+      "dialogue": "Great question. Let's walk through how you can build a being yourself through BABY."
+    },
+    "reachable": true,
+    "input": {
+      "text": {
+        "nextNode": "END_FLAG"
+      }
+    }
+  },
+  "Next1": {
+    "visualOrder": 5,
+    "response": {
+      "dialogue": "With the BABY System, you can create virtual interviews and conversations, extend the Character Module to support multiple agents, and implement other custom features through only JavaScript. BABY is meant to help interested researchers who don't have a ton of prior experience with building ECA's, developing with standardized ECA tools, or using game engines."
+    },
+    "reachable": true,
+    "input": {
+      "button": {
+        "options": [
+          {
+            "label": "How do I get started?",
+            "nextNode": "NewNode_1"
+          }
+        ],
+        "selectMultiple": false
+      },
+      "text": {
+        "nextNode": "NewNode_1"
+      }
+    }
+  },
+  "Intro": {
+    "visualOrder": 1,
+    "response": {
+      "dialogue": "Hey, it's me again, except now, I'm an embodied, conversational agent. Ask me something about the BABY System and I'll do my best to answer using the uploaded information."
+    },
+    "input": {
+      "button": {
+        "options": [
+          {
+            "label": "What is the BABY System?",
+            "nextNode": "Start"
+          }
+        ],
+        "selectMultiple": false
+      }
+    },
+    "reachable": true
+  }
+}

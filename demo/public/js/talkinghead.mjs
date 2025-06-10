@@ -406,9 +406,9 @@ class TalkingHead {
           { name: 'breathing', delay: 1500, dt: [ 1200,500,1000 ], vs: { chestInhale: [0.5,0.5,0] } },
           { name: 'pose', alt: [
             { p: 0.5, delay: [5000,30000], vs: { pose: ['side'] } },
-            { p: 0.3, delay: [5000,30000], vs: { pose: ['hip'] },
-              'M': { delay: [5000,30000], vs: { pose: ['wide'] } }
-            },
+            // { p: 0.3, delay: [5000,30000], vs: { pose: ['hip'] },
+            //   'M': { delay: [5000,30000], vs: { pose: ['wide'] } }
+            // },
             { delay: [5000,30000], vs: { pose: ['straight'] } }
           ]},
           { name: 'head',
@@ -429,18 +429,18 @@ class TalkingHead {
           { name: 'pose',
             idle: {
               alt: [
-                // { p: 0.6, delay: [5000,30000], vs: { pose: ['side'] } },
+                { p: 0.6, delay: [5000,30000], vs: { pose: ['side'] } },
                 // { p: 0.2, delay: [5000,30000], vs: { pose: ['hip'] },
-                //   'M': { delay: [5000,30000], vs: { pose: ['side'] } }
+                  //  'M': { delay: [5000,30000], vs: { pose: ['side'] } }
                 // },
                 { p: 0.1, delay: [5000,30000], vs: { pose: ['straight'] } },
-                // { delay: [5000,10000], vs: { pose: ['wide'] } },
-                // { delay: [1000,3000], vs: { pose: ['turn'] } },
+                { delay: [5000,10000], vs: { pose: ['wide'] } },
+                { delay: [1000,3000], vs: { pose: ['turn'] } },
               ]
             },
             speaking: {
               alt: [
-                // { p: 0.4, delay: [5000,30000], vs: { pose: ['side'] } },
+                { p: 0.4, delay: [5000,30000], vs: { pose: ['side'] } },
                 { p: 0.4, delay: [5000,30000], vs: { pose: ['straight'] } },
                 // { delay: [5000,20000], vs: { pose: ['hip'] },
                 //   'M': { delay: [5000,30000], vs: { pose: ['wide'] } }

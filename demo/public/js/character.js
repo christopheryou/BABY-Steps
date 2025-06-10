@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async function (e) {
   };
 
   console.log(scenario);
-  
+
   const email = scenario?.researcherEmail;
   const url = scenario?.characterPath;
   if (!url) {
@@ -83,6 +83,10 @@ export async function characterAudioQueue(audio) {
   try {
     // console.log("Checking speaking: ", head.isSpeaking, head.speechQueue);      
     // can have subtitles! and other stuff. hve to look more into if u want it
+    if (first) {
+      head.playGesture('👋');
+      first = false;
+    }
     await head.speakAudio(audio, null, null);
 
   } catch (error) {
@@ -105,6 +109,10 @@ export async function characterText(text) {
 
 export async function characterTextQueue(text) {
   try {
+    if (first) {
+      head.playGesture('👋');
+      first = false;
+    }
     await head.speakText(text);
   } catch (error) {
     console.error('Error during speech processing:', error);

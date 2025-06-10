@@ -2,7 +2,8 @@ require('dotenv').config(); // Load variables into process.env
 const path = require('path');
 const jsonDir = path.resolve(__dirname, './json')
 const apiKey = process.env.OPENAI_API_KEY;
-const audioApiKey = process.env.GOOGLE_API_KEY || process.env.ELEVEN_LABS_API_KEY;
+const googleAudioApiKey = process.env.GOOGLE_API_KEY
+const elevenLabsAudioApiKey = process.env.ELEVEN_LABS_API_KEY;
 const vectorStoreId = process.env.VECTOR_STORE_ID;
 
 // ===== Scenario Configurations =====
@@ -11,25 +12,26 @@ const scenario = {
     largeLanguageModel: {
         model: "gpt-4o-mini",
         apiKey: apiKey || "N/A",
-        systemPrompt: `You are a mental wellbeing virtual assistant.`
+        systemPrompt: `You are an assistant who answers questions about ACM HAI.`
     },
     characterAvatar: {
         body: "M" || "F", // Female or Male Body
         cameraView: "upper", // full, mid, upper, head
         mood: "neutral",
-        name: "Agent",
-        path: path.join('characters', 'model.glb'),
+        name: "BABY Assistant",
+        path: path.join('characters', 'female_avatar.glb'),
     },
     characterVoice: {
-        type: "google" || "elevenLabs",
-        model: "en-US-Neural2-F" || "YqApuarN9Z1zDLV3DTEA", // Two random voice models, first one is Google, second is ElevenLabs
-        apiKey: audioApiKey || "N/A",
+        type: "elevenLabs" || "google",
+        model: "aMSt68OGf4xUZAnLpTU8" || "en-US-Neural2-F", // Two random voice models, Google (en-US-Neural-2) and ElevenLabs (aMSt68OGf4xUZAnLpTU8)
+        apiKey: elevenLabsAudioApiKey || googleAudioApiKey,
         googleTtsEndpoint: "/Interaction/Google", // Default - Does not need to be changed unless you rename endpoint
         elevenLabsTtsEndpoint: "/Interaction/ElevenLabs" // Default ^
     },
     conversationScript: {
-        type: "Open" || "Scripted",
-        path: path.join(jsonDir,'OpenConversationScript.json')
+        type: "Scripted" || "Open",
+        path: path.join(jsonDir,'BABYScriptWithAudio.json'),
+        useKnowledgeBase: false,
     },
     verbalBackchannels: {
         enabled: false,

@@ -68,7 +68,7 @@ function initConversationScript() {
         console.log("Successfully preloaded conversation script at: ", conversationScriptPath);
         return scriptData;
     } catch (err) {
-        console.error("Error reading or parsing CompleteConversationScript.json", err);
+        console.error("Error reading or parsing Script", err);
         scriptData = []; // Fallback to empty data
         return scriptData;
     }
@@ -85,7 +85,7 @@ function initVerbalBackchannels() {
         console.log("Successfully preloaded verbal backchannels at: ", verbalBackchannelsPath);
         return verbalBackchannels;
     } catch (err) {
-        console.error("Error reading or parsing Placeholders.json:", err);
+        console.error("Error reading or parsing Placeholders:", err);
         verbalBackchannels = []; // Fallback to empty data
         return verbalBackchannels;
     }
