@@ -127,6 +127,13 @@ async function getOpenResponse(req) {
             req.session.params.messages.push({ role: 'user', content: userInput });
 
         const messages = req.session?.params?.messages;
+        if (node?.response?.dialogue) {
+            return responseData = {
+                nodeName: nodeName,
+                dialogue: node.response.dialogue,
+                input: node?.input,
+            }
+        }
         const generatedDialogue = (nodeName !== "START_FLAG" && nodeName !== "END_FLAG")
             ? await generateKnowledgeBaseResponse(messages)
             : null;
@@ -268,7 +275,6 @@ async function getScriptedResponse(req) {
         }
 
         if (node.audioBase64 && node.words && node.wtimes && node.wdurations) {
-            console.log("Pre");
             responseData.audioBase64 = node.audioBase64;
             responseData.words = node.words;
             responseData.wtimes = node.wtimes;

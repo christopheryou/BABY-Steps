@@ -1,0 +1,887 @@
+
+skip to main content
+
+    Digital Library
+    CACM
+    Career Center
+    Queue
+    XRDS
+    Join ACM
+
+ACM Logo
+ACM Learning Center Site
+
+    O'Reilly
+    Percipio
+    Pluralsight
+    Search Input Search Submit
+
+    Home
+        Learning Center Home
+            About the Learning Center
+
+        About ACM Learning Center
+
+        The ACM Learning Center offers ACM members access to lifelong learning tools and resources. Our E-Learning collections offer complimentary access to more than 80,000 online books, courses, and videos from top content publishers. The ACM TechTalk series brings leading computing luminaries and visionaries to your screen. Members enjoy exclusive offers and discounts on IT industry certifications and vendor-specific training.
+        Membership Options and Rates
+        Request ACM Membership Information
+    E-Learning
+        E-Learning Home
+            O'Reilly
+            Pluralsight
+            Skillsoft
+
+        Membership Options and Rates
+        Request ACM Membership Information
+    Member Offers
+        Member Offers Home
+            Teradata
+            CompTia
+            Stevens Institute
+            Dell EMC
+            NYU Tandon
+
+        About Member Offers
+
+        As an ACM member, you are eligible for tuition scholarships at online universities for continued learning and discounts on training toward popular industry certifications. Student members have special access to free learning resources.
+    TechTalks
+        TechTalks Home
+            TechTalks Archive
+
+        About TechTalks
+
+        ACM members are always the first to learn about our popular series of free TechTalks, keeping you at the cutting edge of the latest technical and technological developments. Targeting computing practitioners but also suitable for students and educators, our TechTalks feature ACM A.M. Turing Award winners, ACM Fellows, respected researchers, and expert industry professionals.
+        Image of Aditya Challapally
+        Dynamic Neural Network Compression for Scalable AI Deployment
+        Image of Mayo Oshin and Nuno Campos
+        Building Reliable AI Agents and LLM Apps Using LangChain and LangGraph
+        kent-beck-techtalk.jpg
+        Empirical Software Design: When & Why
+    ByteCast
+        ByteCast Home
+            ByteCast Archive
+
+        ACM ByteCast
+
+        ACM ByteCast is a podcast series from ACM’s Practitioner Board in which hosts Rashmi Mohan, Bruke Kifle, and Scott Hanselman interview researchers, practitioners, and innovators who are at the intersection of computing research and practice. In each monthly episode, guests will share their experiences, the lessons they’ve learned, and their own visions for the future of computing.
+
+        Listen to the latest episode below, or wherever you get your podcasts.
+        Image of Kate Kallot
+        ByteCast Ep70: Kate Kallot
+        Image of Michael J. Freedman
+        ByteCast Ep69: Michael J. Freedman
+        Image of Peter Lee
+        ByteCast Ep68: Peter Lee
+    Resources
+        Resources Home
+            ACM Minigraphs
+            ACM Selects
+
+        About Resources
+
+        Tune in to podcast interviews with global leaders in computing and IT, learn more about relevant ACM publications, conferences, job and career resources, networking opportunities, and other ways to get the most out of your ACM membership.
+        Membership Options and Rates
+        Request ACM Membership Information
+    FAQs
+        FAQs Home
+            O'Reilly FAQs
+            Pluralsight FAQs
+            Skillsoft FAQs
+
+        About FAQs
+
+        Find answers to the most common questions regarding our Skillsoft online learning platforms.
+        ACM membership FAQ
+        Customer Service FAQs
+        ACM Staff Directory
+    Practitioner Board
+        Practitioner Board
+            Local Mentoring Committee
+            Professional Development Committee
+
+        Practitioner Board
+
+        The Practitioner Board is responsible for developing programs that support the professional needs of ACM members as well as promoting computing as a profession. The Practitioner Board and Professional Development Committee focus on products and services that support and enhance the professional and technical development of practicing computing professionals, including engineers, architects, IT specialists and managers.
+        Image of Kate Kallot
+        ByteCast Ep70: Kate Kallot
+        Image of Michael J. Freedman
+        ByteCast Ep69: Michael J. Freedman
+        Image of Peter Lee
+        ByteCast Ep68: Peter Lee
+
+    TechTalks Home TechTalks Archive 
+
+    Home
+    TechTalks
+
+ACM TechTalks
+
+ACM members and non-members alike are welcome to attend our popular series of free TechTalks by expert industry professionals, distinguished ACM award laureates, and visionary researchers from industry and academia. Focused on keeping our global audience of busy practitioners at the forefront of technical trends, professional development, and emerging technologies, the TechTalks are also popular with students and educators. Recent talks have covered topics in Artificial Intelligence and Machine Learning, Big Data and Data Science, Blockchain, Computer Vision, Deep Learning, JavaScript, Microservices, Python, Quantum Computing, and more. Registration is free and the TechTalks can be attended both live and on-demand, on desktop and mobile devices. Check this page frequently for upcoming events as well as our on-demand archive. To subscribe to our TechTalk announcements, email learning@acm.org.
+ACM TechTalks
+View Our Recent TechTalk
+
+Empirical Software Design: When & Why
+
+Since the publication of Parnas' "On the Criteria to Be Used in Decomposing Systems into Modules" we have had good advice on how to design software. However, most software is more difficult to change than it should be and that friction compounds over time. The Empirical Design Project seeks to resolve the seemingly-irresolvable tradeoff between short-term feature progress and long-term optionality, focusing on:
+
+    How is software actually designed? What can we learn from data about how software is designed?
+    When should software design decisions be made? What is the optimal moment given unclear and changing information & priorities?
+    How can we enhance the survival of software projects while expanding optionality?
+
+ 
+Spoiler alert: make design decisions later and in small, safe steps.
+
+ 
+
+ 
+ACM Learning Center TechTalk Archive
+
+ACM award winners, leading researchers, industry veterans, thought leaders, and innovators address today and tomorrow's hottest topics and issues in computing for busy practitioners, as well as educators, students, and researchers. Check out our archive of these ACM TechTalks, free for members and non-members alike.
+TechTalks on Artificial Intelligence & Machine Learning
+
+Talks from some of the leading visionaries and bleeding-edge researchers in AI/ML: Fei-Fei Li on visual intelligence in computers and ImageNet; Eric Horvitz on AI solutions in the open world; and Tom Mitchell on using ML to study how the brain creates and represents language.
+View Latest Learning Center TechTalks
+17 April 2025 : Empirical Software Design: When & Why with Kent Beck
+27 March 2025 : Applying Cinematic Techniques to Data Storytelling with Angelica Lo Duca
+6 March 2025 : The Death of Work: Leading Effective Engineering Teams with sarah Drasner
+ACM TechTalks
+Programming for All: A Feminist Case for Language Design
+
+Register now for the next free ACM TechTalk, "Programming for All: A Feminist Case for Language Design," presented on Thusday, June 26 at 12:00 PM ET/16:00 UTC by Felienne Hermans, Professor at Vrije Universiteit Amsterdam. Mark Guzdial, Professor and Director for the Program in Computing for the Arts and Sciences at the University of Michigan, will moderate the questions and answers session following the talk. Continue the discussion on ACM's Discourse Page.
+Image of Felienne Hermans
+ACM TechTalks
+Dynamic Neural Network Compression for Scalable AI Deployment
+
+View the recent ACM TechTalk, "Dynamic Neural Network Compression for Scalable AI Deployment," presented by Aditya Challapally, Applied Science Lead at Microsoft. Chris Pease, Researcher at the MIT Media Lab, moderated the questions and answers session following the talk. Continue the discussion on ACM's Discourse Page.
+Image of Aditya Challapally
+
+    About ACM
+    About ACM
+    Volunteer
+
+    Membership
+    Join ACM
+    Renew My Membership
+    Membership Options
+    Membership Benefits
+    myACM Sign-In
+
+    Publications
+    About Publications
+    Digital Library
+    Submit A Paper
+
+    Chapters
+    Chapter Administrative Interface
+    Chapter Activities Calendar
+    Start A Chapter
+
+    Awards
+    About ACM's Awards
+
+    Conferences
+    ACM's Conferences
+
+    Code of Ethics
+    ACM's Code of Ethics
+    Enforcement Procedures
+
+    Media Center
+    ACM Media Center
+
+ACM Logo
+
+    Facebook logo Twitter logo LinkedIn logo Reddit logo YouTube logo Instagram Flickr Mastodon Bluesky WeChat Email 
+
+    Home
+    ACM Home
+    Sitemap
+    Contact Us
+    Member Services
+    Privacy Policy
+    Accessibility
+    Copyright © 2025, ACM, Inc
+
+
+
+skip to main content
+
+    Digital Library
+    CACM
+    Queue
+    TechNews
+    Career Center
+
+ACM Logo
+Advancing Computing as a Science & Profession
+
+    Join
+    Volunteer
+    myACM
+    Search Input Search Submit
+
+    About ACM
+        About Home
+            About ACM
+            ACM's Mission, Vision, Core Values and Goals
+            Governance
+            ACM Council
+            Boards and Committees
+            Past Presidents
+            ACM Constitution
+            Bylaws
+            Annual Reports
+            History
+            Code of Ethics
+            Code of Ethics Enforcement Procedures
+            Stop Harassment
+            Report Unacceptable Behavior
+            Policy on Complaint Process Disclosure
+            ACM Statements
+            ACM in the News
+            ACM Updates
+            Media Center
+            Contact Us
+
+        About ACM
+
+        ACM, the world's largest educational and scientific computing society, delivers resources that advance computing as a science and a profession. ACM provides the computing field's premier Digital Library and serves its members and the computing profession with leading-edge publications, conferences, and career resources.
+
+        [Learn More about ACM...]
+        Regional Councils.jpg
+        ACM Regional Councils
+        ACM History
+        ACM: Formed at the Dawn of Computing
+    Membership
+        Membership Home
+            About Membership
+            Membership Options
+            Membership Benefits
+            Ambassadors for ACM
+            People of ACM
+            Members in the News
+            Join
+            Renew
+            Subscribe
+            Manage your Account / myACM
+            Distinguished Speakers
+            Contact Us
+
+        ACM Membership
+
+        ACM offers the resources, access and tools to invent the future. No one has a larger global network of professional peers. No one has more exclusive content. No one presents more forward-looking events. Or confers more prestigious awards. Or provides a more comprehensive learning center. 
+
+        [Learn More about ACM Membership...]
+        skills-bundle.jpg
+        ACM Skills Bundle Add-On
+        ACM membership FAQ
+        Customer Service FAQs
+        Ambassador for ACM Program
+        Become an Ambassador for ACM
+    Publications
+        Publications Home
+            About Publications
+            Digital Library
+            CACM
+            Journals
+            Magazines
+            Books
+            Conference Proceedings
+            ICPS
+            SIGs Newsletters
+            Blue Diamond Newsletter
+            Applications-Oriented Content
+            For Authors
+            Primary Article Templates
+            Open Access
+            Artifacts and Reproducibility
+            New ACM Journals
+            Propose New Publications
+            Policies
+            Report a Potential Violation
+            Ethics & Plagiarism
+            Publications Board
+            Subscribe
+            Advertise
+            Contact Us
+
+        About ACM Publications
+
+        For more than 60 years, the best and brightest minds in computing have come to ACM to meet, share ideas, publish their work and change the world. ACM's publications are among the most respected and highly cited in the field because of their longstanding focus on quality and their ability to attract pioneering thought leaders from both academia and industry.
+
+        [Learn More about ACM Publications...]
+        Publish your work
+        Publish with ACM
+        practical_content_journals.jpg
+        Select Application-Oriented Papers
+        artifact-badges.jpg
+        Software and Data Artifacts in the ACM Digital Library
+    SIGs
+        Special Interest Groups Home
+            About SIGs
+            SIG Listing
+            Emerging Interest Groups
+            SIG Awards
+            SIG Chapters
+            Publications
+            Conferences
+            Join a SIG
+            Volunteer Resources
+            SIG Leaders
+            Contact Us
+
+        Special Interest Groups
+
+        ACM's Special Interest Groups (SIGs) represent major areas of computing, addressing the interests of technical communities that drive innovation. SIGs offer a wealth of conferences, publications and activities focused on specific computing sub-disciplines. They enable members to share expertise, discovery and best practices.
+
+        [Learn More about ACM's SIGs...]
+        Join an ACM SIG
+        Join an ACM SIG
+        promoting-sharing.jpg
+        Virtual Conferences: A Guide to Best Practices
+    Conferences
+        Conferences Home
+            About Conferences
+            Conferences FAQ
+            Conference Series
+            Upcoming Conferences
+            Get Conference Proceedings
+            Upcoming Submission Deadlines
+            ACM Author Rights & Permissions
+            Best Paper Awards
+            Volunteer Resources
+            Contact Us
+
+        ACM and its Special Interest Groups Host More Than 170 Events Worldwide
+
+        Our conferences, workshops and symposia unite innovators like you to push computing technology forward and to continue the legacy that unites us as like-minded thinkers and makers.
+
+        [Learn More about ACM Conferences...]
+        Find a SIG Conference
+        Find an ACM Conference
+        promoting-sharing.jpg
+        Virtual Conferences: A Guide to Best Practices
+    Chapters
+        Chapters Home
+            About Chapters
+            Professional Chapters
+            Student Chapters
+            Meetups
+            Newsletter
+            Calendar of Local Activities
+            Distinguished Speakers
+            Annual Reports
+            Find a Chapter
+            Start a Chapter
+            Chapter Policies
+            Chapter Administrative Interface
+            Contact Us
+
+        About ACM Chapters
+
+        ACM’s Professional and Student chapters worldwide serve as hubs of activity for ACM members and the computing community at large. They provide seminars, lectures, learning forums and networking opportunities with peers and experts across the computing spectrum.
+
+        [Learn More about ACM Chapters...]
+        chapter_box.jpg
+        Chapter-in-a-Box: Everything You Need to Run and Grow Your ACM Chapter
+        Chapter Administrative Interface
+        Start an ACM Chapter
+    Awards
+        Awards Home
+            About Awards
+            Award Recipients
+            ACM Fellows
+            ACM Advanced Member Grades
+            ACM Awards Committee
+            Nominate
+            Award Sponsors
+            Establish a New Award
+            Contact Us
+
+        About ACM Awards
+
+        ACM recognizes excellence through its eminent awards for technical and professional achievements and contributions in computer science and information technology. It also names as Fellows and Distinguished Members those members who, in addition to professional accomplishments, have made significant contributions to ACM's mission.
+
+        More on ACM Awards
+        2024 ACM A.M. Turing Award recipients Andrew G. Barto and Richard S. Sutton
+        Andrew Barto and Richard Sutton Receive 2024 ACM A.M. Turing Award
+        2024 ACM Prize recipient Torsten Hoefler
+        Torsten Hoefler Receives 2024 ACM Prize in Computing
+        2025-2026 ACM Athena Lecturer Cordelia Schmid
+        ACM Names Cordelia Schmid 2025-2026 Athena Lecturer
+    Education
+        Education Home
+            About Education
+            Curricula Recommendations
+            Affiliated Organizations
+            ACM Learning Center
+            Resources for Educators
+            Resources for Graduating Students
+            Education Board and Advisory Committee
+            Reports and Studies
+            Contact Us
+
+        Education
+
+        ACM’s educational activities, conducted primarily through our Education Board and Advisory Committee, range from the K-12 space (CSTA) and two-year programs to undergraduate, graduate, and doctoral-level education, and professional development for computing practitioners at every stage of their career...
+
+        [Learn More about Education…]
+        education-advisory-committee-ppl.jpg
+        ACM Education Advisory Committee Applications Open
+        Image of Aditya Challapally
+        Dynamic Neural Network Compression for Scalable AI Deployment
+        Image of Kate Kallot
+        ByteCast Ep70: Kate Kallot
+    Learning Center
+        Learning Center Home
+            About the Learning Center
+            E-Learning
+            Member Offers
+            TechTalks
+            ByteCast
+            Resources
+            FAQs
+            Practitioner Board
+            Professional Development Committee
+
+        About ACM Learning Center
+
+        The ACM Learning Center offers ACM members access to lifelong learning tools and resources. Our E-Learning collections offer complimentary access to more than 80,000 online books, courses, and videos from top content publishers. The ACM TechTalk series brings leading computing luminaries and visionaries to your screen. Members enjoy exclusive offers and discounts on IT industry certifications and vendor-specific training.
+        Image of Kate Kallot
+        ByteCast Ep70: Kate Kallot
+        Image of Michael J. Freedman
+        ByteCast Ep69: Michael J. Freedman
+        Image of Peter Lee
+        ByteCast Ep68: Peter Lee
+    Public Policy
+        Public Policy Home
+            About ACM's Public Policy Work
+            Tech Policy Council
+            Europe Tech Policy
+            US Tech Policy
+            USTPC HotTopics Webinars
+            ACM TechBriefs
+            Policy Products
+            Media Releases
+            Contact Us
+
+        Public Policy
+
+        ACM provides independent, nonpartisan, and technology-neutral research and resources to policy leaders, stakeholders, and the public about public policy issues, drawn from the deep technical expertise of the computing community.
+
+        [Learn More about ACM's Public Policy Work...]
+        TechBrief on Accessibility
+        TechBrief on Accessibility
+        tpc-remote-proctoring-software.jpg
+        USTPC Issues Revised Statement on Remote Proctoring
+        europetpc-diggreencerts-stmt.jpg
+        ACM Europe TPC Statement on Digital Green Certificates
+    Diversity, Equity & Inclusion
+        Diversity, Equity and Inclusion Home
+            About Diversity, Equity and Inclusion
+            Forming Diverse Teams
+            Words Matter
+            ACM Celebrates Awareness Months
+            ACM Code of Ethics
+            Stop Harassment
+            Contact Us
+            Report Unacceptable Behavior
+            ACM-W
+
+        Diversity, Equity, and Inclusion
+
+        Anyone, from any background, should feel encouraged to participate and contribute to ACM. ACM is committed to creating an environment that welcomes new ideas and perspectives, and where hostility or other antisocial behaviors are not tolerated.
+
+        [Learn More about ACM's Commitment to Diversity, Equity, and Inclusion...]
+        Image with the text,
+        DEI Articles in CACM
+        Image with the text,
+        DEI CE Webinars
+        Image of different skin tone hands in a high-five circle
+        How Diverse Is Your Team?
+
+Smart Technology, Fair Finance - The Promise and Risks of AI for Sustainable Development
+
+As digital technologies and artificial intelligence reshape global economies, the need for responsible AI governance and inclusive standards has become urgent, and digital innovations risk deepening divides or reinforcing inequities. On this topic, ACM has organized "Smart Technology, Fair Finance - The Promise and Risks of AI for Sustainable Development" at the International Conference on Financing for Development, 30 June – 3 July 2025, Seville, Spain. This session will explore strategic investments in digital infrastructure, ethical AI deployment, climate-smart technologies, and the risks of digital exclusion and unintended harms when AI and digital systems are poorly governed.
+ACM Reaffirms Its Commitment to Our Mission and Core Values
+
+ACM is aware that many in our community are concerned about potential negative effects of recent Executive Orders by the new US Administration on our work in both the US and globally. This includes concerns about possible consequences for ACM publishing, conferences, education, and practitioner efforts, as well as concerns about possible harms to our work on inclusion for a strong and diverse technology workforce.
+
+ACM reaffirms its commitment to our mission and core values in all our scientific and educational activities. This includes global scientific and educational efforts dedicated to advancing the art, science, engineering, and application of computing. We will continue to serve both professional and public interests by fostering the open exchange of information and by promoting the highest professional and ethical standards.
+
+ACM’s commitment to its mission, guided by its core values, is unchanged. We will work with members of the community to understand how new Executive Orders may affect their work as it relates to scientific, educational, and community development efforts.
+
+    Submit your work
+    ACM's Publications Program
+
+Image button linking to Publications section
+
+    Upcoming conferences
+    Submissions deadlines 
+
+Image button linking to Conferences section
+
+    Find your technical community
+    Find a SIG Chapter near you
+
+Image button linking to Special Interest Groups section
+
+    Join ACM!
+    Renew Your Membership
+
+Image button linking to Membership section
+
+    Nominations 
+    Award Recipients
+
+Image button linking to Awards section
+
+    Curricula Recommendations
+    ACM Learning Center
+
+Image button linking to Education section
+
+    Words Matter
+    Awareness Months
+
+Image button linking to Diversity Equity & Inclusion section
+
+    Recent Policy Products
+    ACM TechBriefs
+
+Image button linking to Publich Policy section
+Communications of the relaunched
+CACM Relaunched as Open Access, Web-First Publication
+
+ACM has relaunched Communications of the ACM (CACM) as a web-first publication, accessible to all without charge—including the entire backlog of CACM articles. First published in 1958, CACM is one of the most respected information technology magazines. The web-first model will allow ACM to publish articles more rapidly than before so that readers can keep abreast of the lightning-fast changes in the computing field. At the same time, researchers will be able to reference and cite valuable information and research from CACM articles more quickly. This marks another important milestone in ACM's ongoing transition to a fully open access publisher.
+A Rewarding Line of Work
+
+In this article from the June issue of Communications of the ACM, Neil Savage delivers a comprehensive overview of the careers and accomplishments of 2024 ACM A.M. Turing Award recipients Andrew G. Barto and Richard S. Sutton. From their separate beginnings in the computer sciences, to their meeting and collaboration on a research project at the University of Massachusetts, and their ultimate development of the modern field of reinforcement learning (RL)—a key method in artificial intelligence (AI) that trains neural networks by offering them rewards, much like the chemical boost that neurons get from doing something positive. It is that work which earned Barto and Sutton the "Nobel Prize in Computing."
+For Practitioners
+Program Merge: What's Deep Learning Got to Do with It?
+
+If you regularly work with open-source code or produce software for a large organization, you're already familiar with many of the challenges posed by collaborative programming at scale. And the scale of the problem has gotten much worse. This is what led a group of researchers at MSR (Microsoft Research) to take on the task of complicated merges as a grand program-repair challenge—one they believed might be addressed at least in part by machine learning. To understand the thinking that led to this effort and then follow where that led, Erik Meijer and Terry Coatta spoke with three of the leading figures in the MSR research effort, called DeepMerge
+Richard S. Sutton and Andrew G. Barto
+Developing the Foundations of Reinforcement Learning
+
+The examples are nothing if not relatable: preparing breakfast, or playing a game of chess or tic-tac-toe. Yet the idea of learning from the environment and taking steps that progress toward a goal apparently was under-studied when 2024 ACM A.M. Turing Award recipients Andrew G. Barto and Richard S. Sutton took on the topic in the late 1970s. Eventually, their research led to the creation of reinforcement learning algorithms that sought not to recognize patterns but maximize rewards. In this Q&A from the June issue of Communications of the ACM, Barto and Sutton speak about how it all unfolded, and what’s next for the techniques that are so celebrated for their success in AlphaGo and AlphaZero.
+CACM
+For Practitioners
+Systems Correctness Practices at Amazon Web Services
+
+ACM Queue’s "Research for Practice" serves up expert-curated guides to the best of computing research, and relates these breakthroughs to the challenges that software engineers face every day. In this installment, Marc Brooker and Ankush Desai look at how Amazon Web Services (AWS) strives to deliver reliable services that customers can trust completely. This requires maintaining the highest standards of security, durability, integrity, and availability—with systems correctness serving as the cornerstone for achieving these priorities. They highlight the approach for ensuring the correctness of critical services that have since become among the most widely used by AWS customers.
+Become an Ambassador for ACM
+
+Encourage your colleagues to join ACM, share the benefits of ACM and receive free gifts for participating. Your support of ACM is critical to our continuing efforts to advance computing as a science and a profession. 
+Ambassador for ACM Program
+ACM Code of Ethics
+
+The ACM Code of Ethics and Professional Conduct was updated in 2018 to address the significant advances in computing technology since the 1992 version, as well as the growing pervasiveness of computing in all aspects of society.
+Career Resource
+Lifelong Learning
+
+ACM offers lifelong learning resources including online books and courses from Skillsoft, TechTalks on the hottest topics in computing and IT, and more.
+techpacks
+Send Email as Your "@acm.org" Address
+
+ACM is excited to announce a new enhancement of to the widely used ACM email forwarding service. Through a partnership with MailRoute, SMTP Auth Relay is now available for member use. To start sending fully authenticated email as your @acm.org address, simply log in at https://myacm.acm.org and click the "SMTP Auth Relay" link.
+
+    About ACM
+    About ACM
+    Volunteer
+
+    Membership
+    Join ACM
+    Renew My Membership
+    Membership Options
+    Membership Benefits
+    MyACM Sign In
+
+    Publications
+    About Publications
+    Digital Library
+    Submit a Paper
+    Advertise with ACM
+
+    Chapters
+    Chapter Admin Interface
+    Chapter Activities Calendar
+    Start a Chapter
+
+    Special Interest Groups
+    SIGs Newsletter
+
+    Awards
+    About ACM's Awards
+
+    Conferences
+    ACM's Conferences
+
+    Code of Ethics
+    ACM's Code of Ethics
+    Enforcement Procedures
+
+    Media Center
+    ACM Media Center
+    Advertise with ACM
+
+    Education
+    Education Home
+
+    Privacy Policy
+    Privacy Policy Home
+
+ACM Logo
+
+    Facebook logo Twitter logo LinkedIn logo Reddit logo YouTube logo Instagram Flickr Mastodon Bluesky WeChat Email 
+
+    Home
+    Sitemap
+    Contact Us
+    Member Services
+    Privacy Policy
+    Social Media Policy
+    Accessibility
+    Cookie Declaration
+    Copyright © 2025, ACM, Inc
+
+
+skip to main content
+
+    Digital Library
+    CACM
+    Career Center
+    Queue
+    XRDS
+    Join ACM
+
+ACM Logo
+ACM Learning Center Site
+
+    O'Reilly
+    Percipio
+    Pluralsight
+    Search Input Search Submit
+
+    Home
+        Learning Center Home
+            About the Learning Center
+
+        About ACM Learning Center
+
+        The ACM Learning Center offers ACM members access to lifelong learning tools and resources. Our E-Learning collections offer complimentary access to more than 80,000 online books, courses, and videos from top content publishers. The ACM TechTalk series brings leading computing luminaries and visionaries to your screen. Members enjoy exclusive offers and discounts on IT industry certifications and vendor-specific training.
+        Membership Options and Rates
+        Request ACM Membership Information
+    E-Learning
+        E-Learning Home
+            O'Reilly
+            Pluralsight
+            Skillsoft
+
+        Membership Options and Rates
+        Request ACM Membership Information
+    Member Offers
+        Member Offers Home
+            Teradata
+            CompTia
+            Stevens Institute
+            Dell EMC
+            NYU Tandon
+
+        About Member Offers
+
+        As an ACM member, you are eligible for tuition scholarships at online universities for continued learning and discounts on training toward popular industry certifications. Student members have special access to free learning resources.
+    TechTalks
+        TechTalks Home
+            TechTalks Archive
+
+        About TechTalks
+
+        ACM members are always the first to learn about our popular series of free TechTalks, keeping you at the cutting edge of the latest technical and technological developments. Targeting computing practitioners but also suitable for students and educators, our TechTalks feature ACM A.M. Turing Award winners, ACM Fellows, respected researchers, and expert industry professionals.
+        Image of Aditya Challapally
+        Dynamic Neural Network Compression for Scalable AI Deployment
+        Image of Mayo Oshin and Nuno Campos
+        Building Reliable AI Agents and LLM Apps Using LangChain and LangGraph
+        kent-beck-techtalk.jpg
+        Empirical Software Design: When & Why
+    ByteCast
+        ByteCast Home
+            ByteCast Archive
+
+        ACM ByteCast
+
+        ACM ByteCast is a podcast series from ACM’s Practitioner Board in which hosts Rashmi Mohan, Bruke Kifle, and Scott Hanselman interview researchers, practitioners, and innovators who are at the intersection of computing research and practice. In each monthly episode, guests will share their experiences, the lessons they’ve learned, and their own visions for the future of computing.
+
+        Listen to the latest episode below, or wherever you get your podcasts.
+        Image of Kate Kallot
+        ByteCast Ep70: Kate Kallot
+        Image of Michael J. Freedman
+        ByteCast Ep69: Michael J. Freedman
+        Image of Peter Lee
+        ByteCast Ep68: Peter Lee
+    Resources
+        Resources Home
+            ACM Minigraphs
+            ACM Selects
+
+        About Resources
+
+        Tune in to podcast interviews with global leaders in computing and IT, learn more about relevant ACM publications, conferences, job and career resources, networking opportunities, and other ways to get the most out of your ACM membership.
+        Membership Options and Rates
+        Request ACM Membership Information
+    FAQs
+        FAQs Home
+            O'Reilly FAQs
+            Pluralsight FAQs
+            Skillsoft FAQs
+
+        About FAQs
+
+        Find answers to the most common questions regarding our Skillsoft online learning platforms.
+        ACM membership FAQ
+        Customer Service FAQs
+        ACM Staff Directory
+    Practitioner Board
+        Practitioner Board
+            Local Mentoring Committee
+            Professional Development Committee
+
+        Practitioner Board
+
+        The Practitioner Board is responsible for developing programs that support the professional needs of ACM members as well as promoting computing as a profession. The Practitioner Board and Professional Development Committee focus on products and services that support and enhance the professional and technical development of practicing computing professionals, including engineers, architects, IT specialists and managers.
+        Image of Kate Kallot
+        ByteCast Ep70: Kate Kallot
+        Image of Michael J. Freedman
+        ByteCast Ep69: Michael J. Freedman
+        Image of Peter Lee
+        ByteCast Ep68: Peter Lee
+
+    Resources Home ACM Minigraphs ACM Selects 
+
+    Home
+    Resources
+
+About ACM Resources
+
+Tune in to podcast interviews with global leaders in computing and IT. Learn more about relevant ACM publications, conferences, job and career resources, networking opportunities, and other ways to get the most out of your ACM membership.
+Communications of the ACM
+
+Communications of the ACM, ACM’s flagship publication, covers the latest discoveries, innovations, and research that are shaping the computing field. Delivered in print each month to ACM professional members, Communications brings readers in-depth stories of emerging areas of computer science, new trends in IT, and practical research applications.
+ACM Queue
+
+ACM’s magazine written by and for practitioners is now available in mobile and desktop digital editions, and provides access to Queue content in convenient, on-the-go formats. Now it’s easier than ever to benefit from Queue’s unique perspectives on how current and emerging technologies are being applied in the field.
+ACM Case Studies
+
+Written by leading domain experts for software engineers, ACM Case Studies provide an in-depth look at how software teams overcome specific challenges by implementing new technologies, adopting new practices, or a combination of both. Often through first-hand accounts, these pieces explore what the challenges were, the tools and techniques that were used to combat them, and the solution that was achieved.
+ACM Opens First 50 Years Backfile
+
+ACM has opened the articles published during the first 50 years of its publishing program, from 1951 through the end of 2000, These articles are now open and freely available to view and download via the ACM Digital Library. ACM’s first 50 years backfile contains more than 117,500 articles on a wide range of computing topics. In addition to articles published between 1951 and 2000, ACM has also opened related and supplemental materials including data sets, software, slides, audio recordings, and videos.
+Interviews by Stephen Ibaraki
+
+Tune in as the leaders, innovators, and entrepreneurs advancing computing as a science and a profession discuss their background, experience, and career highlights, all while providing invaluable insights and lessons learned for future computing professionals in this ongoing series of exclusive interviews conducted by Stephen Ibaraki, Past Chair of the ACM Practitioner Board.
+Ubiquity’s Communication Corner Helps Improve Writing and Speaking Skills
+
+Have you always wondered how you can improve your writing and communicate more effectively? Ubiquity, ACM's online magazine of critical analysis and in-depth commentary, offers Communication Corner, a monthy feature by Philip Yaffe, retired Wall Street Journal reporter and Ubiquity editorial board member. Each installment includes an essay on a fundamental aspect of effective writing or speaking; an exercise to help you practice writing on the topic being discussed; and an invitation to submit your exercise for possible critique.
+Volunteer with SocialCoder
+
+You can use your technical skills for social good and offer volunteer support on software development projects to organizations who could not otherwise afford it. SocialCoder connects volunteer programmers/software developers with registered charities and helps match them to suitable projects based on their skills, experience, and the causes they care about. Learn more about ACM’s new partnership with SocialCoder, and how you can get involved.
+﻿﻿Additional Resources
+Computing/IT-Oriented Career Websites:
+
+ComputerJobs.com
+ComputerWork.com
+DataMasters
+Dice 
+Resumes, Cover Letters, and Interview Tips:
+
+9 Steps to Acing a Job Interview
+About.com - Resume and Cover Letter Guide
+Cover Letter Samples
+Damn Good
+Online Professional Networking:
+
+Doostang
+Ecademy
+LinkedIn
+Ryze
+Spoke
+Xing
+Salary Survey Sites:
+
+Indeed - Salary Search
+PayScale
+Salary.com
+SalaryExpert 
+Career-Related Blogs:
+
+Top 50 Common Interview Questions
+USA Today - Resume and Cover Letter Writing
+Career and Job-Hunting Blog
+Monster Blog
+Occupational Adventure
+Work-Related Blogs and News 
+Other Career/Job Search Advice Articles:
+
+70+ Tools for Job Hunting 2.0
+Career Advice for the College Graduate
+Everything You Wanted to Know About Getting a Job in Silicon Valley But Didn't Know Who to Ask
+How Do You Get a Job When Nobody Will Give You a Chance?
+The Get-Started Guide to Making It
+ACM Local
+Meet Computing Professionals Near You
+
+ACM has launched a local events initiative in several major US cities to help computer professionals like you build personal networks of smart technical people nearby. You can share work experiences and insight, discuss new research ideas and provide guidance in finding a job or launching a new venture.
+ACM Local Meet up groups
+View ACM’s 75th Anniversary Celebration On Demand
+
+ACM organized a special one-day conference to celebrate its 75th anniversary. This event was truly a memorable day of panels featuring world-leading scholars and practitioners on topics central to the future of computing. Panelists imagined what might be next for technology and society. ACM’s 75th Anniversary Celebration took place at the Palace Hotel in San Francisco on June 10. View the livestream on demand. Visit the event webpage for more details, including the program.
+
+    About ACM
+    About ACM
+    Volunteer
+
+    Membership
+    Join ACM
+    Renew My Membership
+    Membership Options
+    Membership Benefits
+    myACM Sign-In
+
+    Publications
+    About Publications
+    Digital Library
+    Submit A Paper
+
+    Chapters
+    Chapter Administrative Interface
+    Chapter Activities Calendar
+    Start A Chapter
+
+    Awards
+    About ACM's Awards
+
+    Conferences
+    ACM's Conferences
+
+    Code of Ethics
+    ACM's Code of Ethics
+    Enforcement Procedures
+
+    Media Center
+    ACM Media Center
+
+ACM Logo
+
+    Facebook logo Twitter logo LinkedIn logo Reddit logo YouTube logo Instagram Flickr Mastodon Bluesky WeChat Email 
+
+    Home
+    ACM Home
+    Sitemap
+    Contact Us
+    Member Services
+    Privacy Policy
+    Accessibility
+    Copyright © 2025, ACM, Inc
+
+
+

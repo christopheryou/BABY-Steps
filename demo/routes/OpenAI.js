@@ -1,9 +1,13 @@
+const fs = require('fs');
+const path = require('path');
 const { scenario } = require('../scenario');
 
 const apiKey = scenario?.largeLanguageModel?.apiKey || "N/A";
 const vectorStoreId = scenario?.vectorStoreId || "N/A";
 const model = scenario?.largeLanguageModel?.model || "N/A";
+const useKnowledgeBase = scenario?.conversationScript?.useKnowledgeBase || false;
 const OpenAI = require('openai');
+const MAX_NUM_RESULT = 5;
 
 async function generateKnowledgeBaseResponse(messages) {
   try {
@@ -13,11 +17,12 @@ async function generateKnowledgeBaseResponse(messages) {
           input: messages,
       };
       
-      if (vectorStoreId && vectorStoreId !== "N/A") {
+      if (useKnowledgeBase && vectorStoreId && vectorStoreId !== "N/A") {
           console.log("Attaching vectorStore for retrieval-augmented generation: ", vectorStoreId)
           requestPayload.tools = [{
               type: "file_search",
               vector_store_ids: [vectorStoreId],
+              max_num_results: MAX_NUM_RESULT,
           }];
       }
       const openai = new OpenAI({ apiKey });
@@ -149,6 +154,26 @@ async function deleteVectorStore(vectorStoreId) {
         console.log(err);
     }
 }
+
+// Function to read local PDF and call uploadKnowledgeBase
+async function uploadFileAsKnowledgeBase(filePath, vectorStoreId = null) {
+    const fullPath = path.resolve(filePath);
+
+    if (!fs.existsSync(fullPath)) {
+        console.error("File does not exist:", fullPath);
+        return;
+    }
+
+    const fileStream = fs.createReadStream(fullPath);
+
+    const result = await uploadKnowledgeBase(fileStream, vectorStoreId);
+    console.log("Upload result:", result);
+}
+
+// Example usage
+uploadFileAsKnowledgeBase('./json/ACM.txt', vectorStoreId);
+// uploadFileAsKnowledgeBase('./json/BABY.pdf');
+deleteFile('file-7qFm9Tmywt5wd2k2FZQKdv');
 
 
 module.exports = {

@@ -12,7 +12,7 @@ const scenario = {
     largeLanguageModel: {
         model: "gpt-4o-mini",
         apiKey: apiKey || "N/A",
-        systemPrompt: `You are an assistant who answers questions about ACM HAI.`
+        systemPrompt: `You are an assistant who answers questions about the ACM Website. Use the uploaded knowledge base to respond to the inputted queries in 1 brief sentences without any additional formatting (text only). In any response that uses the knowledge base, provide a brief quote (max 5 words) in your response, to illustrate this is verbatim text.`
     },
     characterAvatar: {
         body: "F" || "M", // Female or Male Body
@@ -29,8 +29,8 @@ const scenario = {
         elevenLabsTtsEndpoint: "/Interaction/ElevenLabs" // Default ^
     },
     conversationScript: {
-        type: "Scripted" || "Open",
-        path: path.join(jsonDir,'BABYScriptWithAudio.json'),
+        type: "Open" || "Scripted",
+        path: path.join(jsonDir,'OpenScript.json'),
         useKnowledgeBase: true,
     },
     verbalBackchannels: {
@@ -38,7 +38,7 @@ const scenario = {
         path: path.join(jsonDir,'VerbalBackchannels.json')
     },
     researcherEmail: "email@email.com", // In case you want to provide front-end users with your email, in case anything breaks.
-    templateType: "panel-view" || "chatlog-view", // Front-end conversation rendering -- with history or without history
+    templateType: "chatlog-view" || "panel", // Front-end conversation rendering -- with history or without history
     vectorStoreId: vectorStoreId || "N/A",
 }
 

@@ -1,11 +1,17 @@
 {
   "START_FLAG": {
+    "response": {
+      "dialogue": "By changing your scenario and inserting your desired conversation script; you can have entirely different focused conversations with me. Try asking me something about ACM."
+    },
     "input": {
+      "text": {
+        "nextNode": "MAIN_NODE"
+      },
       "button": {
         "options": [
           {
-            "label": "Start Conversation",
-            "nextNode": "MAIN_NODE"
+            "label": "End Conversation",
+            "nextNode": "END_FLAG"
           }
         ]
       }
@@ -32,7 +38,7 @@
         "options": [
           {
             "label": "Complete Survey",
-            "surveyLink": "https://hai-conference.net/hai2025/"
+            "surveyLink": "https://www.acm.org/"
           }
         ]
       }
