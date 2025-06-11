@@ -171,9 +171,9 @@ async function uploadFileAsKnowledgeBase(filePath, vectorStoreId = null) {
 }
 
 // Example usage
-uploadFileAsKnowledgeBase('./json/ACM.txt', vectorStoreId);
+// uploadFileAsKnowledgeBase('./json/ACM.txt', vectorStoreId);
 // uploadFileAsKnowledgeBase('./json/BABY.pdf');
-deleteFile('file-7qFm9Tmywt5wd2k2FZQKdv');
+// deleteFile('file-7qFm9Tmywt5wd2k2FZQKdv');
 
 
 module.exports = {
